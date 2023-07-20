@@ -17,14 +17,14 @@ const Navbar = () => {
                     <span class="ml-3 text-2xl text-gray-100 font-semibold cursor-pointer">myCart</span>
                 </a>
                 <div class="w-1/2 md:w-1/3 flex justify-center items-center">
-                    <div class="w-full flex justify-center items-center mx-2">
-                        <input type="text" name="hero-field" class=" w-4/5 bg-gray-300 bg-opacity-30 rounded border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:bg-white focus:border-yellow-500 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder:text-black" placeholder='Search' />
-                        <FontAwesomeIcon icon={faMagnifyingGlass} className='mx-1 text-xl md:text-2xl cursor-pointer' />
+                    <div class="w-4/5 flex justify-center items-center rounded border border-gray-300">
+                        <input type="text" name="hero-field" class="w-full bg-gray-300 bg-opacity-30 focus:ring-2  focus:bg-white focus:border-gray-500 text-base outline-none text-black py-1 px-3 leading-6 transition-colors duration-200 ease-in-out placeholder:text-black" placeholder='Search' />
+                        <FontAwesomeIcon icon={faMagnifyingGlass} className='mx-2 text-xl md:text-2xl cursor-pointer' />
                     </div>
                 </div>
-                {menu ? <FontAwesomeIcon icon={faBars} onClick={toggle} className=' mx-2 md:hidden block rotate-90 text-xl duration-200' /> : <FontAwesomeIcon icon={faBars} onClick={toggle} className=' mx-2 md:hidden block text-xl duration-200' />}
+                {menu ? <FontAwesomeIcon icon={faBars} onClick={toggle} className=' mx-2 lg:hidden block rotate-90 text-xl duration-200' /> : <FontAwesomeIcon icon={faBars} onClick={toggle} className=' mx-2 lg:hidden block text-xl duration-200' />}
 
-                <div className={` ${menu ? `flex` : `hidden`} flex-col lg:flex-row justify-center items-center md:flex py-4 lg:py-0 w-full lg:w-1/2`}>
+                <div className={` ${menu ? `flex` : `hidden`} flex-col lg:flex-row justify-center items-center lg:flex py-4 lg:py-0 w-full lg:w-1/2`}>
 
                     <nav class="flex flex-col lg:flex-row items-center text-base justify-center">
                         <a class="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer">First Link</a>
