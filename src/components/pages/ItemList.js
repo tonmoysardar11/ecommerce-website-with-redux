@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ItemList = () => {
     const [list, setlist] = useState([]);
-    
+
 
     const fetchData = async () => {
         const response = await fetch('https://fakestoreapi.com/products')
@@ -20,7 +20,7 @@ const ItemList = () => {
 
 
     return (
-        <section className="text-gray-600 body-font py-24 md:px-5 lg:px-10 xl:px-15">
+        <section className="text-gray-600 body-font py-24 px-5 md:px-5 lg:px-10 xl:px-15">
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-around -m-4">
                     {list?.map((element) => {
@@ -29,7 +29,7 @@ const ItemList = () => {
                                 <img alt="ecommerce" className="object-center w-full h-full block " src={element.image} />
                             </Link>
                             <div className="mt-4">
-                                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{element.category.charAt(0).toUpperCase()+element.category.slice(1)}</h3>
+                                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{element.category.charAt(0).toUpperCase() + element.category.slice(1)}</h3>
                                 <h2 className="text-gray-900 title-font text-lg font-medium">{element.title}</h2>
                                 <p className="mt-1">${element.price}</p>
                             </div>
