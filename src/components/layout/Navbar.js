@@ -11,7 +11,7 @@ const Navbar = () => {
 
     const itemCount = 10;
     return (
-        <header class="text-gray-100 bg-purple-900 body-font md:px-5 lg:px-10 xl:px-15">
+        <header class="text-gray-100 bg-indigo-700 body-font md:px-5 lg:px-10 xl:px-15">
             <div class="w-full mx-auto flex flex-wrap px-1 md:px-5 py-2 justify-between items-center">
                 <a class="flex title-font font-medium items-center text-gray-900 md:mb-0">
                     <span class="ml-3 text-2xl text-gray-100 font-semibold cursor-pointer">myCart</span>
@@ -19,7 +19,9 @@ const Navbar = () => {
                 <div class="w-1/2 md:w-1/3 flex justify-center items-center">
                     <div class="w-4/5 flex justify-center items-center rounded border border-gray-300">
                         <input type="text" name="hero-field" class="w-full bg-gray-300 bg-opacity-30 focus:ring-2  focus:bg-white focus:border-gray-500 text-base outline-none text-black py-1 px-3 leading-6 transition-colors duration-200 ease-in-out placeholder:text-black" placeholder='Search' />
-                        <FontAwesomeIcon icon={faMagnifyingGlass} className='mx-2 text-xl md:text-2xl cursor-pointer' />
+                        <div className='px-2 text-xl md:text-2xl cursor-pointer hover:bg-white hover:text-indigo-700'>
+                        <FontAwesomeIcon icon={faMagnifyingGlass}  />
+                        </div>
                     </div>
                 </div>
                 {menu ? <FontAwesomeIcon icon={faBars} onClick={toggle} className=' mx-2 lg:hidden block rotate-90 text-xl duration-200' /> : <FontAwesomeIcon icon={faBars} onClick={toggle} className=' mx-2 lg:hidden block text-xl duration-200' />}
