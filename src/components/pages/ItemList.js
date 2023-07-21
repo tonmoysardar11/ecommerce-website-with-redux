@@ -10,32 +10,21 @@ const ItemList = () => {
 
     const dispatch = useDispatch()
 
-
-
-
     const load = () => dispatch(fetchItems())
 
     const data = useSelector(state => state)
-    console.log(data)
 
     useEffect(() => {
         setTimeout(() => {
             load();
-        }, 5000);
+        }, 1000);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-
-
-
-
-
-
 
     return (
         <section className="text-gray-600 body-font py-24 px-5 md:px-5 lg:px-10 xl:px-15">
             <div className="container mx-auto">
-                <div className="flex flex-wrap justify-around -m-4">
+                <div className="flex flex-wrap justify-center -m-4">
                     {data.item.isLoading ? <Puff
                         height="300"
                         width="300"
