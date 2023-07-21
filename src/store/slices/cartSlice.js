@@ -15,4 +15,4 @@ const cartslice=createSlice({
     }
 })
 
-export default cartslice;
+export default cartslice.reducer;
