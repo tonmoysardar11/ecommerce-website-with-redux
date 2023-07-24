@@ -15,14 +15,12 @@ const ItemList = () => {
     const data = useSelector(state => state)
 
     useEffect(() => {
-        setTimeout(() => {
-            load();
-        }, 1000);
+        load();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
-        <section className="text-gray-600 body-font py-24 px-5 md:px-5 lg:px-10 xl:px-15">
+        <section className="text-gray-600 body-font py-5 px-5 md:px-5 lg:px-10 xl:px-15">
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center -m-4">
                     {data.item.isLoading ? <Puff

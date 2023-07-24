@@ -51,6 +51,18 @@ const itemSlice = createSlice({
             state.isError=true;
             console.log('Error',action.payload)
         })
+        builder.addCase(fetch_electronics.fulfilled, (state, action) => {
+            state.data=null;
+            state.isLoading = false;
+            state.data = action.payload;
+        })
+        builder.addCase(fetch_electronics.pending,(state)=>{
+            state.isLoading=true;
+        })
+        builder.addCase(fetch_electronics.rejected,(state,action)=>{
+            state.isError=true;
+            console.log('Error',action.payload)
+        })
     }
 
 })
