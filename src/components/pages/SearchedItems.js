@@ -1,19 +1,18 @@
 import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { Puff } from 'react-loader-spinner';
 
 
+const SearchedItems = ({find}) => {
 
+    
 
-const ItemList = () => {
     const [data, setdata] = useState([]);
-    const [loader, setloader] = useState(true);
+    
+    
 
-    const load=async()=> {
-        
+    const load=async()=> {    
         let fetchedData= await fetch('https://fakestoreapi.com/products');
         let json=await fetchedData.json()
-        setloader(false)
         setdata(data.concat(json))
     
 
@@ -26,25 +25,16 @@ const ItemList = () => {
     }, []);
 
 
+
     const viewItem = (element) => {
 
     }
-    
-    
-    return (
-        <section className="text-gray-600 body-font py-5 px-5 md:px-5 lg:px-10 xl:px-15">
+  return (
+    <section className="absolute top-24 bg-gray-100 z-50 text-gray-600 body-font px-5 md:px-5 lg:px-10 xl:px-15">
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center -m-4">
-                <Puff
-                        height="300"
-                        width="300"
-                        color="#4338CA"
-                        radius="100"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                        visible={loader}
-                        ariaLabel="rings-loading" />
-                    { data.map((element) => {
+                
+                    { data.length>0?data.filter((element)=>element.title.toString().toLowerCase().includes(find.toString().toLowerCase())).map((element) => {
                             return <div key={element.id} className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full hover:scale-110 transition ease-in duration-200 cursor-pointer">
                                 <Link className="block relative h-48 rounded overflow-hidden">
                                     <img alt="ecommerce" className="object-center w-full h-full block " src={element.image} />
@@ -61,11 +51,11 @@ const ItemList = () => {
                                             </svg>
                                         </Link>
                             </div>
-                        })}
+                        }):"No Items Found"}
                 </div>
             </div>
         </section>
-    )
+  )
 }
 
-export default ItemList
+export default SearchedItems
