@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { view } from '../../store/slices/viewerSlice'
 
 
 
 const Electronics = () => {
 
-    const data = useSelector(state => state.item);
-
-    const items = data.data.filter((element) => element.category === 'electronics');
+    const data = useSelector(state => state.item.data);
+    
+    const items = data.filter((element) => element.category === "men's clothing");
     const [filter, setfilter] = useState(false);
     const [filterData, setfilterData] = useState([]);
     const [maxprice, setmaxprice] = useState(0);
     const [filterprice, setfilterprice] = useState(0);
     const [option, setoption] = useState('');
 
-    const dispatch = useDispatch();
+
 
 
 
@@ -64,22 +63,25 @@ const Electronics = () => {
 
     const changeSort = (e) => {
         setoption(e.target.value)
-
-    }
-
-    const viewItem = (element) => {
-        dispatch(view(element))
+        
     }
 
     return (
         <div className='text-gray-600 body-font md:pt-24 md:flex md:px-5 lg:px-20 '>
-            <>
+
+
+
+
             <aside className="sticky top-0 z-40 md:top-16 flex flex-col w-full md:w-1/5 bg-white text-black shadow-lg shadow-black px-3 h-96">
+
                 <div className=" ml-3 text-2xl font-semibold cursor-pointer flex justify-between items-center">Filters
                     {filter ? <FontAwesomeIcon icon={faBars} onClick={toggle} className='mx-3 lg:hidden block rotate-90 text-xl duration-200' /> : <FontAwesomeIcon icon={faBars} onClick={toggle} className='mx-3 lg:hidden block text-xl duration-200' />}
                 </div>
+
                 <div className={`${filter ? `flex` : `hidden`} md:flex flex-col justify-center items-center mt-6 py-8`}>
+
                     <div className="w-full">
+
                         <div className="mx-1">
                             <p className=" w-full justify-center rounded-md bg-white py-2 text-sm font-semibold text-gray-900 shadow-sm" >Sort By</p>
                             <div className="mb-[0.125rem] block min-h-[1.5rem]" onClick={ascendingPrice}>
@@ -90,8 +92,8 @@ const Electronics = () => {
                                     onChange={changeSort}
 
                                     id="ascendingPrice"
-                                    value="ascendingPrice"
-                                    checked={option === 'ascendingPrice'} />
+                                    value="ascendingPrice" 
+                                    checked={option==='ascendingPrice'}/>
                                 <label
                                     className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
                                     htmlFor="ascendingPrice" >
@@ -107,7 +109,7 @@ const Electronics = () => {
                                     value="descendingPrice"
 
                                     id="descendingPrice"
-                                    checked={option === 'descendingPrice'}
+                                    checked={option==='descendingPrice'}
                                 />
                                 <label
                                     className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
@@ -138,7 +140,7 @@ const Electronics = () => {
                 <div className="container mx-auto">
                     <div className="flex flex-wrap justify-start -m-4">
                         {filterData.length > 0 ? filterData.map((element) => {
-                            return <div key={element.id} className="shadow-md lg:w-1/4 md:w-1/2 my-2 rounded p-3 w-full hover:scale-105 transition ease-in duration-200 ">
+                            return <div key={element.id} className="shadow-md lg:w-1/4 md:w-1/2 my-2 rounded p-3 w-full hover:scale-110 transition ease-in duration-200 cursor-pointer">
                                 <Link className="block relative h-48 rounded overflow-hidden">
                                     <img alt="ecommerce" className="object-center w-full h-full block " src={element.image} />
                                 </Link>
@@ -146,20 +148,12 @@ const Electronics = () => {
                                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{element.category.charAt(0).toUpperCase() + element.category.slice(1)}</h3>
                                     <h2 className="text-gray-900 title-font text-lg font-medium">{element.title}</h2>
                                     <p className="mt-1">${element.price}</p>
-
                                 </div>
-                                <Link className="text-indigo-500 flex items-center md:mb-2 lg:mb-0 text-xl cursor-pointer" onClick={() => viewItem(element)} >View
-                                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M5 12h14"></path>
-                                        <path d="M12 5l7 7-7 7"></path>
-                                    </svg>
-                                </Link>
                             </div>
                         }) : "No Items Found"}
                     </div>
                 </div>
             </section>
-            </>
         </div>
     )
 }

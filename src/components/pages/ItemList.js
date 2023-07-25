@@ -12,18 +12,18 @@ const ItemList = () => {
 
     const load = () => dispatch(fetchItems())
 
-    const data = useSelector(state => state)
-
+    
     useEffect(() => {
         load();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
+    
+    const data = useSelector(state => state.item)
     return (
         <section className="text-gray-600 body-font py-5 px-5 md:px-5 lg:px-10 xl:px-15">
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center -m-4">
-                    {data.item.isLoading ? <Puff
+                    {data.isLoading ? <Puff
                         height="300"
                         width="300"
                         color="#4338CA"
@@ -31,7 +31,7 @@ const ItemList = () => {
                         wrapperStyle={{}}
                         wrapperClass=""
                         visible={true}
-                        ariaLabel="rings-loading" /> : data.item.data?.map((element) => {
+                        ariaLabel="rings-loading" /> : data.data?.map((element) => {
                             return <div key={element.id} className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full hover:scale-110 transition ease-in duration-200 cursor-pointer">
                                 <Link className="block relative h-48 rounded overflow-hidden">
                                     <img alt="ecommerce" className="object-center w-full h-full block " src={element.image} />

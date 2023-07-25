@@ -7,12 +7,15 @@ import { Link } from 'react-router-dom'
 
 
 
+
 const Navbar = () => {
     const [menu, setmenu] = useState(false);
     const toggle = () => {
         setmenu(!menu)
     }
 
+
+  
     
 
     const itemCount = 0;
@@ -36,9 +39,9 @@ const Navbar = () => {
 
                     <nav className="flex flex-col lg:flex-row items-center text-base justify-center">
                         <Link to='/electronics' className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer" onClick={()=>setmenu(false)}>Electronics</Link>
-                        <Link className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer" onClick={()=>setmenu(false)}>Jewelery</Link>
-                        <Link className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer" onClick={()=>setmenu(false)}>Mens Clothings</Link>
-                        <Link className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer" onClick={()=>setmenu(false)}>Womens Clothings</Link>
+                        <Link to='/jewelery' className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer" onClick={()=>setmenu(false)}>Jewelery</Link>
+                        <Link to='/mens' className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer" onClick={()=>setmenu(false)}>Mens Clothings</Link>
+                        <Link to='/womens' className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer" onClick={()=>setmenu(false)}>Womens Clothings</Link>
                     </nav>
                     <Link to='/cart' onClick={()=>setmenu(false)}>
                         <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"> Cart {itemCount>0?<FontAwesomeIcon icon={faCartArrowDown} className='m-1 text-xl cursor-pointer'/>:<FontAwesomeIcon icon={faCartShopping} className='m-1 text-xl cursor-pointer' />}
