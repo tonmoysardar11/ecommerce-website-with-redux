@@ -1,16 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchItems } from '../../store/slices/itemSlice';
 import { Puff } from 'react-loader-spinner';
 
 
 
+
 const ItemList = () => {
+    const [data, setdata] = useState([]);
+    const [loader, setloader] = useState(true);
 
-    const dispatch = useDispatch()
+    const load=async()=> {
+        
+        let fetchedData= await fetch('https://fakestoreapi.com/products');
+        let json=await fetchedData.json()
+        setloader(false)
+        setdata(data.concat(json))
+    
 
-    const load = () => dispatch(fetchItems())
+    }
 
     
     useEffect(() => {
@@ -18,20 +25,21 @@ const ItemList = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
-    const data = useSelector(state => state.item)
+    
     return (
         <section className="text-gray-600 body-font py-5 px-5 md:px-5 lg:px-10 xl:px-15">
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center -m-4">
-                    {data.isLoading ? <Puff
+                <Puff
                         height="300"
                         width="300"
                         color="#4338CA"
                         radius="100"
                         wrapperStyle={{}}
                         wrapperClass=""
-                        visible={true}
-                        ariaLabel="rings-loading" /> : data.data?.map((element) => {
+                        visible={loader}
+                        ariaLabel="rings-loading" />
+                    { data.map((element) => {
                             return <div key={element.id} className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full hover:scale-110 transition ease-in duration-200 cursor-pointer">
                                 <Link className="block relative h-48 rounded overflow-hidden">
                                     <img alt="ecommerce" className="object-center w-full h-full block " src={element.image} />
