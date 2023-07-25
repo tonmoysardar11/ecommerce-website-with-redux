@@ -26,14 +26,12 @@ const Electronics = () => {
         setloader(false)
         setfilterData(filterData.concat(json))
         setitems(items.concat(json))
-        json.forEach(element => {
-            if (element.price > maxprice) {
-                let price = element.price
+        let max = [...json].sort((a, b) => { return b.price - a.price })
+        
+                let price = max[0].price;
                 setmaxprice(Math.ceil(price));
                 setfilterprice(Math.ceil(price))
-            }
-
-        });
+            
 
 
     }
@@ -193,9 +191,9 @@ const Electronics = () => {
 
                                     <div className="mx-1">
                                         <p className=" w-full justify-center rounded-md bg-white py-2 text-sm font-semibold text-gray-900 shadow-sm" >
-                                            Selected Range : 0-{filterprice}
+                                            Selected Range : $0-${filterprice}
                                             <input type="range" className='w-full' min={0} max={maxprice} value={filterprice} onChange={change} name='price' />
-                                            Max Price: {maxprice}
+                                            Max Price: ${maxprice}
                                         </p>
 
                                     </div>
