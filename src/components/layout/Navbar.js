@@ -38,7 +38,7 @@ const Navbar = () => {
         <>
             <header className="md:fixed w-full z-50 text-gray-100 bg-indigo-700 body-font px-3 md:px-5 lg:px-10 xl:px-15">
                 <div className="w-full mx-auto flex flex-wrap px-1 md:px-5 py-2 justify-between items-center">
-                    <Link to='/' className="flex title-font font-medium items-center text-gray-900 md:mb-0" onClick={() => setmenu(false)}>
+                    <Link to='/' className="flex title-font font-medium items-center text-gray-900 md:mb-0">
                         <span className="ml-3 text-2xl text-gray-100 font-semibold cursor-pointer">myCart</span>
                     </Link>
                     <div className="w-1/2 md:w-1/3 flex justify-center items-center">

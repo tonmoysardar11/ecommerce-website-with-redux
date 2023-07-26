@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { Puff } from 'react-loader-spinner'
+import Viewer from './Viewer';
 
 const Electronics = () => {
 
@@ -18,6 +19,8 @@ const Electronics = () => {
     const [option, setoption] = useState('');
     const [loader, setloader] = useState(true);
     const [items, setitems] = useState([]);
+    const [openModal, setopenModal] = useState(false);
+    const [modalData, setmodalData] = useState({});
 
     const load = async () => {
 
@@ -89,9 +92,11 @@ const Electronics = () => {
 
     }
 
-    const viewItem = (element) => {
-
+    const modal=(element)=>{
+        setmodalData(element)
+        setopenModal(true);
     }
+
 
     return (
         <div className='text-gray-600 body-font md:pt-24 md:flex md:px-5 lg:px-20 '>
@@ -216,7 +221,7 @@ const Electronics = () => {
                                             <p className="mt-1">${element.price}</p>
 
                                         </div>
-                                        <Link className="text-indigo-500 flex items-center md:mb-2 lg:mb-0 text-xl cursor-pointer" onClick={() => viewItem(element)} >View
+                                        <Link className="text-indigo-500 flex items-center md:mb-2 lg:mb-0 text-xl cursor-pointer" onClick={()=>modal(element)} >View
                                             <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                 <path d="M5 12h14"></path>
                                                 <path d="M12 5l7 7-7 7"></path>
@@ -231,7 +236,7 @@ const Electronics = () => {
                         : ""}
                 </div>
             </div>
-
+            {openModal && <Viewer item={modalData} state={setopenModal}/>}
         </div>
     )
 }
