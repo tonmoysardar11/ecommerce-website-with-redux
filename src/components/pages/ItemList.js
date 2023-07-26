@@ -41,7 +41,7 @@ const ItemList = () => {
                         color="#4338CA"
                         radius="100"
                         wrapperStyle={{}}
-                        wrapperClass=""
+                        wrapperclassName=""
                         visible={loader}
                         ariaLabel="rings-loading" />
                     { data.map((element) => {

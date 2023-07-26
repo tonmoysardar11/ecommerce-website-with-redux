@@ -103,7 +103,7 @@ const Electronics = () => {
                         color="#4338CA"
                         radius="100"
                         wrapperStyle={{}}
-                        wrapperClass=""
+                        wrapperclassName=""
                         visible={loader}
                         ariaLabel="rings-loading" />
 

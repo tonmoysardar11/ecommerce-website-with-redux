@@ -12,12 +12,21 @@ import SearchedItems from '../pages/SearchedItems'
 const Navbar = () => {
     const [menu, setmenu] = useState(false);
     const [search, setsearch] = useState('');
+    const [focus, setfocus] = useState(false);
     const toggle = () => {
         setmenu(!menu)
     }
 
     const change = (e) => {
         setsearch(e.target.value)
+    }
+
+    const activeFocus=()=>{
+        setfocus(true)
+    }
+
+    const activeBlur=()=>{
+        setfocus(false)
     }
 
 
@@ -34,7 +43,7 @@ const Navbar = () => {
                     </Link>
                     <div className="w-1/2 md:w-1/3 flex justify-center items-center">
                         <div className="w-full md:w-4/5 flex justify-center items-center rounded border border-gray-300">
-                            <input type="text" name="hero-field" className="w-full bg-gray-300 bg-opacity-30 focus:ring-2  focus:bg-white focus:border-gray-500 text-base outline-none text-black py-1 px-3 leading-6 transition-colors duration-200 ease-in-out placeholder:text-black" placeholder='Search' onChange={change} />
+                            <input type="text" name="hero-field" className="w-full bg-gray-300 bg-opacity-30 focus:ring-2  focus:bg-white focus:border-gray-500 text-base outline-none text-black py-1 px-3 leading-6 transition-colors duration-200 ease-in-out placeholder:text-black" placeholder='Search' onChange={change} onFocus={activeFocus} onBlur={activeBlur}/>
                             <div className='px-2 text-xl md:text-2xl cursor-pointer hover:bg-white hover:text-indigo-700'>
                                 <FontAwesomeIcon icon={faMagnifyingGlass} />
                             </div>
@@ -61,7 +70,7 @@ const Navbar = () => {
 
                 </div>
             </header>
-            {search&&<SearchedItems find={search}/>}
+            {search&&<SearchedItems find={search} focus={focus}/>}
 
         </>
     )
