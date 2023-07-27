@@ -5,9 +5,9 @@ const Viewer = ({ item, state }) => {
     return (
         <section class="absolute top-14 left-2 right-2 md:left-32 md:right-32 z-10 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
             <p class="text-lg title-font text-gray-500 tracking-widest text-right mr-5 mt-1 cursor-pointer" onClick={() => state(false)}>X</p>
-            <div class="container px-5 py-24 mx-auto">
-                <div class="lg:w-4/5 mx-auto flex flex-wrap">
-                    <img alt="ecommerce" class="lg:w-1/3 object-center w-full h-full block" src={item.image} />
+            <div class="container p-5 mx-auto">
+                <div class="lg:w-4/5 mx-auto flex flex-wrap flex-col md:flex-row">
+                    <img alt="ecommerce" class="lg:w-1/3 object-center w-full h-72 md:h-auto block" src={item.image} />
                     <div class="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0 mx-auto">
                         <h1 class="text-gray-500 text-lg title-font font-medium mb-1">{item.category.charAt(0).toUpperCase() + item.category.slice(1)}</h1>
                         <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{item.title}</h1>
