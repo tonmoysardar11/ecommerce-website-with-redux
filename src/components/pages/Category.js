@@ -103,7 +103,7 @@ const Category = ({ input }) => {
     return (
         <div className='text-gray-600 body-font lg:pt-16 md:flex md:px-5 lg:px-20 '>
             <div className="container mx-auto">
-                <div className="flex flex-wrap justify-center">
+                <div className="flex flex-col lg:flex-row justify-center">
                     <aside className="sticky z-10 top-0 lg:top-16 flex flex-col w-full lg:w-1/5 bg-white text-black shadow-md shadow-gray-300 p-3 h-auto lg:h-96">
                         <div className="p-3 text-2xl font-semibold flex justify-between items-center">Filters
                             {filter ? <FontAwesomeIcon icon={faBars} onClick={toggle} className='mx-3 lg:hidden block rotate-90 text-xl duration-200' /> : <FontAwesomeIcon icon={faBars} onClick={toggle} className='mx-3 lg:hidden block text-xl duration-200' />}

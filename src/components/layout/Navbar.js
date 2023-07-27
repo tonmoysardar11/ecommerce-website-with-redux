@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faMagnifyingGlass, faBars, faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import SearchedItems from '../pages/SearchedItems'
+import { useSelector } from 'react-redux'
 
 
 
@@ -39,7 +40,8 @@ const Navbar = () => {
 
 
 
-    const itemCount = 0;
+    const itemCount = useSelector(state=>{return state.cart});
+    console.log(itemCount)
     return (
         <>
             <header className="lg:fixed w-full z-50 text-gray-100 bg-indigo-700 body-font px-3 md:px-5 lg:px-10 xl:px-15">
@@ -70,8 +72,8 @@ const Navbar = () => {
                             <Link to='/womens' className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer" onClick={() => setmenu(false)}>Womens Clothings</Link>
                         </nav>
                         <Link to='/cart' onClick={() => setmenu(false)}>
-                            <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"> Cart {itemCount > 0 ? <FontAwesomeIcon icon={faCartArrowDown} className='m-1 text-xl cursor-pointer' /> : <FontAwesomeIcon icon={faCartShopping} className='m-1 text-xl cursor-pointer' />}
-                                <p className='mx-1 px-2 flex justify-center items-center text-black bg-yellow-500 rounded-full'>{itemCount} </p>
+                            <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"> Cart {itemCount.length > 0 ? <FontAwesomeIcon icon={faCartArrowDown} className='m-1 text-xl cursor-pointer' /> : <FontAwesomeIcon icon={faCartShopping} className='m-1 text-xl cursor-pointer' />}
+                                <p className='mx-1 px-2 flex justify-center items-center text-black bg-yellow-500 rounded-full'>{itemCount.length} </p>
                             </button>
                         </Link>
                     </div>
