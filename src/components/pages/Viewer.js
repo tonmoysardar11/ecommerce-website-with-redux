@@ -3,7 +3,7 @@ import React from 'react'
 
 const Viewer = ({ item, state }) => {
     return (
-        <section class="absolute top-14 left-2 right-2 md:left-32 md:right-32 z-10 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <section class="absolute top-24 left-2 right-2 md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
             <p class="text-lg title-font text-gray-500 tracking-widest text-right mr-5 mt-1 cursor-pointer" onClick={() => state(false)}>X</p>
             <div class="container p-5 mx-auto">
                 <div class="lg:w-4/5 mx-auto flex flex-wrap flex-col md:flex-row">

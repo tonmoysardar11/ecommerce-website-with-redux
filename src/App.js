@@ -9,6 +9,7 @@ import Jewelery from './components/pages/Jewelery';
 import Mens from './components/pages/Mens';
 import Womens from './components/pages/Womens';
 import Viewer from './components/pages/Viewer';
+import Category from './components/pages/Category';
 
 
 function App() {
@@ -21,11 +22,10 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route exact path='/cart' element={<Cart/>}/>
-        <Route exact path='/electronics' element={<Electronics/>}/>
-        <Route exact path='/jewelery' element={<Jewelery/>} />
-        <Route exact path='/mens' element={<Mens/>}/>
-        <Route exact path='/womens' element={<Womens/>}/>
-        <Route exact path='/view' element={<Viewer/>}/>
+        <Route exact path='/electronics' element={<Category input='electronics'/>}/>
+        <Route exact path='/jewelery' element={<Category input='jewelery'/>} />
+        <Route exact path='/mens' element={<Category input="men's clothing"/>}/>
+        <Route exact path='/womens' element={<Category input="women's clothing"/>}/>
       </Routes>
       
       
