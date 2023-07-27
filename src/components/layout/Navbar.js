@@ -13,6 +13,7 @@ const Navbar = () => {
     const [menu, setmenu] = useState(false);
     const [search, setsearch] = useState('');
     const [focus, setfocus] = useState(false);
+    const [hover, sethover] = useState(false);
     const toggle = () => {
         setmenu(!menu)
     }
@@ -26,7 +27,9 @@ const Navbar = () => {
     }
 
     const activeBlur=()=>{
-        setfocus(false)
+        if(!hover){
+            setfocus(false)
+        }
     }
 
 
@@ -70,7 +73,7 @@ const Navbar = () => {
 
                 </div>
             </header>
-            {search&&<SearchedItems find={search} focus={focus}/>}
+            {search&&<SearchedItems find={search} focus={focus} setfocus={setfocus} sethover={sethover}/>}
 
         </>
     )
