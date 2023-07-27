@@ -6,7 +6,7 @@ const Viewer = ({ item, state }) => {
         <section class="absolute top-24 left-2 right-2 md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
             <p class="text-lg title-font text-gray-500 tracking-widest text-right mr-5 mt-1 cursor-pointer" onClick={() => state(false)}>X</p>
             <div class="container p-5 mx-auto">
-                <div class="lg:w-4/5 mx-auto flex flex-wrap flex-col md:flex-row">
+                <div class="lg:w-4/5 mx-auto flex flex-wrap items-center flex-col md:flex-row">
                     <img alt="ecommerce" class="lg:w-1/3 object-center w-full h-72 md:h-auto block" src={item.image} />
                     <div class="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0 mx-auto">
                         <h1 class="text-gray-500 text-lg title-font font-medium mb-1">{item.category.charAt(0).toUpperCase() + item.category.slice(1)}</h1>
@@ -14,7 +14,7 @@ const Viewer = ({ item, state }) => {
                         <div class="flex mb-4">
                             <span class="flex items-center justify-center">
                                 <span class="text-gray-900">{item.rating.rate}</span>
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-1 w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
+                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-1 w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                 </svg>
                                 <span class="text-gray-600 ml-3">{item.rating.count} Reviews</span>
