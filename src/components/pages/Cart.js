@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom';
+import { clearCart, removeItem } from '../../store/slices/cartSlice';
 
 
 const Cart = () => {
@@ -8,6 +10,12 @@ const Cart = () => {
   const change=(e)=>{
     setpromo(e.target.value)
   }
+
+
+const dispatch=useDispatch()
+
+
+
   const list = useSelector((state) => { return state.cart })
   const TotalQty=list.length>0?list.reduce((a,b)=> a+b.qty,0):0;
   const TotalPrice=list.length>0?list.reduce((a,b)=> a+b.qty*b.price,0):0;
@@ -46,7 +54,7 @@ const Cart = () => {
             <div class="flex flex-col justify-between ml-4 flex-grow">
               <span class="font-bold text-sm">{element.title}</span>
               <span class="text-gray-500 text-sm">Size: {element.size}</span>
-              <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+              <button class="bg-red-500 hover:bg-red-600 p-2 w-32 text-sm text-white uppercase" onClick={()=>dispatch(removeItem(element.id))}>Remove</button>
             </div>
           </div>
           <span class="text-center w-1/5 font-semibold text-sm">{element.qty}</span>
@@ -55,11 +63,12 @@ const Cart = () => {
         </div>}
         )}
 
-        <a href="#" class="flex font-semibold text-indigo-600 text-sm mt-10">
+        <Link to="/" class="flex font-semibold text-indigo-600 text-sm mt-10">
       
           <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
           Continue Shopping
-        </a>
+        </Link>
+        <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm  my-3 text-white uppercase" onClick={()=>dispatch(clearCart())}>Clear Cart</button>
       </div>
 
       <div id="summary" class="w-full md:w-1/4 px-8 py-10">
