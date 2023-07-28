@@ -5,13 +5,15 @@ import { useSelector } from 'react-redux'
 const Cart = () => {
   const list = useSelector((state) => { return state.cart })
 
+  
+
   return (
   <div class="w-full text-gray-600 body-font lg:pt-16 md:flex md:px-5 lg:px-20">
-    <div class="flex shadow-md my-10 w-full">
-      <div class="w-3/4 bg-white px-10 py-10">
+    <div class="flex shadow-md my-10 w-full flex-col md:flex-row">
+      <div class="w-full md:w-3/4 bg-white px-10 py-10">
         <div class="flex justify-between border-b pb-8">
           <h1 class="font-semibold text-2xl">Shopping Cart</h1>
-          <h2 class="font-semibold text-2xl">{list.reduce((a,b)=> a.qty+b.qty)} Items</h2>
+          <h2 class="font-semibold text-2xl">{list.reduce((a,b)=> {return a.qty+b.qty})} Items</h2>
         </div>
         <div class="flex mt-10 mb-5">
           <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
@@ -27,12 +29,11 @@ const Cart = () => {
             </div>
             <div class="flex flex-col justify-between ml-4 flex-grow">
               <span class="font-bold text-sm">{element.title}</span>
+              <span class="text-gray-500 text-sm">Size: {element.size}</span>
               <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
             </div>
           </div>
-          <div class="flex justify-center w-1/5">
-            
-          </div>
+          <span class="text-center w-1/5 font-semibold text-sm">{element.qty}</span>
           <span class="text-center w-1/5 font-semibold text-sm">${element.price}</span>
           <span class="text-center w-1/5 font-semibold text-sm">${element.qty*element.price}</span>
         </div>}
@@ -45,11 +46,11 @@ const Cart = () => {
         </a>
       </div>
 
-      <div id="summary" class="w-1/4 px-8 py-10">
+      <div id="summary" class="w-full md:w-1/4 px-8 py-10">
         <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
         <div class="flex justify-between mt-10 mb-5">
-          <span class="font-semibold text-sm uppercase">Items {list.reduce((a,b)=> a.qty+b.qty)}</span>
-          <span class="font-semibold text-sm">${list.reduce((a,b)=> a.qty*a.price+b.qty*b.price)}</span>
+          <span class="font-semibold text-sm uppercase">Items {list.reduce((a,b)=> {return a.qty+b.qty})}</span>
+          <span class="font-semibold text-sm">${list.reduce((a,b)=> {return a.qty*a.price+b.qty*b.price})}</span>
         </div>
         <div class="py-10">
           <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
@@ -59,7 +60,7 @@ const Cart = () => {
         <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost</span>
-            <span>${list.reduce((a,b)=> a.qty*a.price+b.qty*b.price)}</span>
+            <span>${list.reduce((a,b)=> {return a.qty*a.price+b.qty*b.price})}</span>
           </div>
           <button class="bg-indigo-700 font-semibold hover:bg-indigo-500 py-3 text-sm text-white uppercase w-full">Checkout</button>
         </div>
