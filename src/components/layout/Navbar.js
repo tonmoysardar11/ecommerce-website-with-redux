@@ -40,8 +40,8 @@ const Navbar = () => {
 
 
 
-    const itemCount = useSelector(state=>{return state.cart});
-    console.log(itemCount)
+    const list = useSelector(state=>{return state.cart});
+    const TotalQty=list.length>0?list.reduce((a,b)=> a+b.qty,0):0;
     return (
         <>
             <header className="lg:fixed w-full z-50 text-gray-100 bg-indigo-700 body-font px-3 md:px-5 lg:px-10 xl:px-15">
@@ -72,8 +72,8 @@ const Navbar = () => {
                             <Link to='/womens' className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer" onClick={() => setmenu(false)}>Womens Clothings</Link>
                         </nav>
                         <Link to='/cart' onClick={() => setmenu(false)}>
-                            <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"> Cart {itemCount.length > 0 ? <FontAwesomeIcon icon={faCartArrowDown} className='m-1 text-xl cursor-pointer' /> : <FontAwesomeIcon icon={faCartShopping} className='m-1 text-xl cursor-pointer' />}
-                                <p className='mx-1 px-2 flex justify-center items-center text-black bg-yellow-500 rounded-full'>{itemCount.length} </p>
+                            <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"> Cart {TotalQty > 0 ? <FontAwesomeIcon icon={faCartArrowDown} className='m-1 text-xl cursor-pointer' /> : <FontAwesomeIcon icon={faCartShopping} className='m-1 text-xl cursor-pointer' />}
+                                <p className='mx-1 px-2 flex justify-center items-center text-black bg-yellow-500 rounded-full'>{TotalQty} </p>
                             </button>
                         </Link>
                     </div>
