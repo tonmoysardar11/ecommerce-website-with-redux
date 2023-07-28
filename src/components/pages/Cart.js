@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 
 const Cart = () => {
   const [promo, setpromo] = useState('');
+  const [discount, setdiscount] = useState(false);
   const change=(e)=>{
     setpromo(e.target.value)
   }
@@ -11,6 +12,12 @@ const Cart = () => {
   const TotalQty=list.length>0?list.reduce((a,b)=> a+b.qty,0):0;
   const TotalPrice=list.length>0?list.reduce((a,b)=> a+b.qty*b.price,0):0;
   const activepromo='TONMOY11';
+
+  const check=()=>{
+    if(promo===activepromo){
+      setdiscount(true)
+    }
+  }
   
 
   
@@ -61,15 +68,22 @@ const Cart = () => {
           <span class="font-semibold text-sm uppercase">Items {TotalQty}</span>
           <span class="font-semibold text-sm">${TotalPrice}</span>
         </div>
+          <span className='font-semibold text-green-500 text-xs'>{TotalPrice>200?'Congratulations! You have unlocked a discount!!':'Flat $11 discount on a Cart Value over $200 '}</span>
         <div class="py-10">
           <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
           <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full" value={promo} onChange={change}/>
+          <p className='font-semibold text-green-500 text-xs'>{!discount?`Apply '${activepromo}' to get flat $11 discount on a Cart Value over $200 `:''}</p>
         </div>
-        <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
+        <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase" onClick={check} disabled={TotalPrice<=200}>Apply</button>
+        <p className={`${TotalPrice>200 && promo!==activepromo?'font-semibold text-red-500 text-xs':'font-semibold text-green-500 text-xs'}`}>{!discount?'': promo!==activepromo ?'Invalid Promo':'Coupon Applied' }</p>
+        <div class="flex font-semibold justify-between py-3 text-sm uppercase">
+            <span>Discount</span>
+            <span>${discount?11:0}</span>
+          </div>
         <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost</span>
-            <span>${TotalPrice}</span>
+            <span>${TotalPrice-(discount?11:0)}</span>
           </div>
           <button class="bg-indigo-700 font-semibold hover:bg-indigo-500 py-3 text-sm text-white uppercase w-full">Checkout</button>
         </div>
