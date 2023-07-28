@@ -18,11 +18,11 @@ const Viewer = ({ item, state }) => {
 
 
     return (
-        <section className="fixed top-12 left-2 right-2 md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <section className="max-h-screen fixed top-12 left-2 right-2 overflow-auto md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
             <p className="text-lg title-font text-gray-500 tracking-widest text-right mr-5 mt-1 cursor-pointer" onClick={() => state(false)}>X</p>
             <div className="container p-5 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap items-center flex-col md:flex-row">
-                    <img alt="ecommerce" className="lg:w-1/3 object-center w-full h-72 md:h-auto block" src={elem.image} />
+                    <img alt="ecommerce" className="lg:w-1/3 object-center w-full h-72 lg:h-auto" src={elem.image} />
                     <div className="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0 mx-auto">
                         <h1 className="text-gray-500 text-lg title-font font-medium mb-1">{elem.category.charAt(0).toUpperCase() + elem.category.slice(1)}</h1>
                         <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{elem.title}</h1>
