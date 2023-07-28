@@ -10,6 +10,7 @@ const Cart = () => {
   return (
   <div class="w-full text-gray-600 body-font lg:pt-16 md:flex md:px-5 lg:px-20">
     <div class="flex shadow-md my-10 w-full flex-col md:flex-row">
+      {list.length>0?<>
       <div class="w-full md:w-3/4 bg-white px-10 py-10">
         <div class="flex justify-between border-b pb-8">
           <h1 class="font-semibold text-2xl">Shopping Cart</h1>
@@ -65,6 +66,7 @@ const Cart = () => {
           <button class="bg-indigo-700 font-semibold hover:bg-indigo-500 py-3 text-sm text-white uppercase w-full">Checkout</button>
         </div>
       </div>
+      </>:<div className='w-full bg-white px-10 py-10 text-center'>Cart is Empty</div>}
 
     </div>
   </div>
