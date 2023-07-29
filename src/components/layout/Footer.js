@@ -11,7 +11,7 @@ const Footer = () => {
       </Link>
       <p class="mt-2 text-sm text-gray-100">Anything to Everything</p>
     </div>
-    <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 text-center">
+    <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 text-center my-5 md:my-0">
       <div class="md:w-1/2 w-full px-4">
         <h2 class="title-font font-medium text-gray-300 tracking-widest text-sm mb-3">CATEGORIES</h2>
         <nav class="list-none mb-10">
@@ -30,7 +30,7 @@ const Footer = () => {
         </nav>
       </div>
     </div>
-    <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 text-center">
+    <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 text-center my-5 md:my-0">
       <div class="md:w-1/2 w-full px-4">
         <h2 class="title-font font-medium text-gray-300 tracking-widest text-sm mb-3">SUPPORT</h2>
         <nav class="list-none mb-10">
@@ -43,7 +43,7 @@ const Footer = () => {
         </nav>
       </div>
     </div>
-    <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 text-center">
+    <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 text-center my-5 md:my-0">
       <div class="md:w-1/2 w-full px-4">
         <h2 class="title-font font-medium text-gray-300 tracking-widest text-sm mb-3">OTHERS</h2>
         <nav class="list-none mb-10">
