@@ -5,6 +5,7 @@ import Cart from './components/pages/Cart';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Category from './components/pages/Category';
+import Footer from './components/layout/Footer';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route exact path='/mens' element={<Category input="men's clothing"/>}/>
         <Route exact path='/womens' element={<Category input="women's clothing"/>}/>
       </Routes>
+      <Footer/>
       
       
     </BrowserRouter>
