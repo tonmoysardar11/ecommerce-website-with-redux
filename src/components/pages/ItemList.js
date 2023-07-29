@@ -39,7 +39,8 @@ const ItemList = () => {
     
     
     return (
-        <section className="text-gray-600 body-font py-5 px-5 md:px-5 lg:px-10 xl:px-15">
+        <>
+        <section className={ openModal?"blur-xl text-gray-600 body-font py-5 px-7 lg:px-10 xl:px-15":"text-gray-600 body-font py-5  px-7 lg:px-10 xl:px-15"}>
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center -m-4">
                 <Puff
@@ -52,7 +53,7 @@ const ItemList = () => {
                         visible={loader}
                         ariaLabel="rings-loading" />
                     { data.map((element) => {
-                            return <div key={element.id} className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full hover:scale-110 transition ease-in duration-200">
+                            return <div key={element.id} className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full md:hover:scale-110 transition ease-in duration-200">
                                 <div className="block relative h-48 rounded overflow-hidden">
                                     <img alt="ecommerce" className="object-center w-full h-full block " src={element.image} />
                                 </div>
@@ -71,8 +72,9 @@ const ItemList = () => {
                         })}
                 </div>
             </div>
-            {openModal && <Viewer item={modalData} state={setopenModal}/>}
         </section>
+            {openModal && <Viewer item={modalData} state={setopenModal} setmodalData={setmodalData}/>}
+            </>
     )
 }
 

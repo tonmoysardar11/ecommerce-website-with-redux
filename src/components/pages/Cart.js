@@ -39,22 +39,22 @@ const Cart = () => {
       {!placed ? <>
         {list.length > 0 ? <div className="w-full text-gray-600 body-font lg:pt-16 md:flex md:px-5 lg:px-20">
           <div className="flex shadow-md my-10 w-full flex-col md:flex-row">
-            <div className="w-full md:w-2/4 bg-white px-10 py-10">
+            <div className="w-full md:w-2/4 bg-white px-3 md:px-10 py-10">
               <div className="flex justify-between border-b pb-8">
                 <h1 className="font-semibold text-2xl">Shopping Cart</h1>
                 <h2 className="font-semibold text-2xl">{TotalQty} Items</h2>
               </div>
-              <div className="flex mt-10 mb-5">
-                <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
+              <div className="flex mt-10 mb-5 w-full">
+                <h3 className="font-semibold text-gray-600 text-xs uppercase w-3/5 md:w-2/5">Product Details</h3>
                 <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
-                <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
+                <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center hidden md:block">Price</h3>
                 <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
               </div>
               {list?.map((element) => {
                 return <div key={element.id} className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                  <div className="flex w-2/5">
-                    <div className="w-20">
-                      <img className="h-24" src={element.image} alt="" />
+                  <div className="flex items-center w-3/5 md:w-2/5 ">
+                    <div className="w-2/5 md:w-20">
+                      <img className="h-10 md:h-24" src={element.image} alt="" />
                     </div>
                     <div className="flex flex-col justify-between ml-4 flex-grow">
                       <span className="font-bold text-sm">{element.title}</span>
@@ -63,7 +63,7 @@ const Cart = () => {
                     </div>
                   </div>
                   <span className="text-center w-1/5 font-semibold text-sm">{element.qty}</span>
-                  <span className="text-center w-1/5 font-semibold text-sm">${element.price}</span>
+                  <span className="text-center w-1/5 font-semibold text-sm hidden md:block">${element.price}</span>
                   <span className="text-center w-1/5 font-semibold text-sm">${element.qty * element.price}</span>
                 </div>
               }
@@ -116,7 +116,7 @@ const Cart = () => {
                 <label htmlFor="contact" className="leading-7 text-sm text-gray-600">Mobile No</label>
                 <input type="tel" id="contact" name="contect" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" maxLength={10} value={mobile} onChange={(e) => setmobile(e.target.value)} />
               </div>
-              <button className="bg-indigo-700 font-semibold hover:bg-indigo-500 py-3 text-sm text-white uppercase w-full" onClick={()=>setplaced(true)}>Place Order</button>
+              <button className="bg-indigo-700 font-semibold hover:bg-indigo-500 py-3 text-sm text-white uppercase w-full disabled:opacity-50" onClick={()=>setplaced(true)} disabled={name<3 || address<6 || mobile<10}>{name<3 || address<6 || mobile<10?'Enter Details To Place Order':'Place Order' }</button>
             </div>
           </div>
         </div >
@@ -146,18 +146,42 @@ const Cart = () => {
           </div>
         }
       </> : <div className="min-h-screen w-full bg-gray-100 flex justify-center items-center">
-        <div className="bg-white shadow-lg p-8 rounded-lg text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" className='mx-auto' width="100" height="100" viewBox="0 0 100 100" x="50%" y="50%" transform="translate(-50%, -50%)">
- 
-            
-
-
-            <path d="M25 50 L40 65 L75 30" stroke="#00FF00" stroke-width="10" fill="none" />
-          </svg>
-
-          <h2 className="text-2xl font-semibold text-green-600 mt-4">Order Placed Successfully</h2>
-          <p className="text-gray-600 mt-2">Thank You for choosing myCart</p>
-        </div>
+      <div class="mt-3 text-center">
+		<div
+			class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100"
+		>
+			<svg
+				class="h-6 w-6 text-green-600"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M5 13l4 4L19 7"
+				></path>
+			</svg>
+		</div>
+		<h3 class="text-lg leading-6 font-medium text-gray-900">Order Placed!</h3>
+		<div class="mt-2 px-7 py-3">
+			<p class="text-sm text-gray-500">
+				Thanks for choosing myCart
+			</p>
+		</div>
+		<div class="items-center px-4 py-3">
+      <Link to='/'>
+			<button
+				id="ok-btn"
+				class="px-4 py-2 bg-green-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300"
+			>
+				Return to Home
+			</button>
+      </Link>
+		</div>
+	</div>
       </div>}
     </>
 

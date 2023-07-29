@@ -1,25 +1,37 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../store/slices/cartSlice';
+import Alert from './Alert';
 
 
 
-const Viewer = ({ item, state }) => {
+const Viewer = ({ item, state,setmodalData }) => {
     const [elem, setelem] = useState({ ...item, size: "Select Size", qty: 1 });
+    const [alert, setalert] = useState(false);
     const dispatch=useDispatch();
+    const showalert=()=>{
+        setalert(true);
+        setTimeout(() => {
+            setalert(false)
+        }, 3000);
+    }
 
 
    
 
     const add=()=>{
         dispatch(addItem(elem))
+        // state(false);
+        showalert();
     }
 
 
 
     return (
-        <section className="max-h-screen fixed top-12 left-2 right-2 overflow-auto md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <p className="text-lg title-font text-gray-500 tracking-widest text-right mr-5 mt-1 cursor-pointer" onClick={() => state(false)}>X</p>
+        <>
+        {alert && <Alert/>}
+        <section className="fixed top-3 left-2 right-2 max-h-[40rem] overflow-scroll md:top-24 md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <p className="text-lg title-font text-gray-500 tracking-widest text-right mr-5 mt-1 cursor-pointer" onClick={() => {state(false);setmodalData([])}}>X</p>
             <div className="container p-5 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap items-center flex-col md:flex-row">
                     <img alt="ecommerce" className="lg:w-1/3 object-center w-full h-72 lg:h-auto" src={elem.image} />
@@ -37,20 +49,18 @@ const Viewer = ({ item, state }) => {
                             </span>
                         </div>
                         <p className="leading-relaxed">{elem.description}</p>
-                        <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
-                            <div className="flex">
+                        <div className="flex mt-6  flex-col md:flex-row items-start md:items-center pb-5 border-b-2 border-gray-100 mb-5">
+                            <div className="flex my-3 justify-center items-center">
                                 <span className="mr-3">Quantity</span>
                                 <div className='flex flex-row justify-center items-center'>
-                                    <button className="inline-flex items-center bg-gray-300 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded-l-lg text-base mt-4 md:mt-0" onClick={()=>{setelem({...elem,qty:elem.qty-1})}}>-
+                                    <button className="inline-flex items-center bg-gray-300 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded-l-lg text-base  md:mt-0" onClick={()=>{setelem({...elem,qty:elem.qty-1})}}>-
                                     </button>
                                     <input className='mx-2 w-5' min={1} value={elem.qty} onChange={(e)=>{setelem({...elem,qty:e.target.value})}}/>
-                                    <button className="inline-flex items-center bg-gray-300 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded-r-lg text-base mt-4 md:mt-0" onClick={()=>{setelem({...elem,qty:elem.qty+1})}}>+
+                                    <button className="inline-flex items-center bg-gray-300 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded-r-lg text-base  md:mt-0" onClick={()=>{setelem({...elem,qty:elem.qty+1})}}>+
                                     </button>
                                 </div>
-
-
                             </div>
-                            <div className="flex ml-6 items-center">
+                            <div className="flex my-3 md:ml-6 items-center">
                                 <span className="mr-3">Size</span>
                                 <div className="relative">
                                     <select className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10" value={elem.size} onChange={(e)=>{setelem({...elem,size:e.target.value})}}
@@ -73,12 +83,13 @@ const Viewer = ({ item, state }) => {
                         </div>
                         <div className="flex">
                             <span className="title-font font-medium text-2xl text-gray-900">${elem.price}</span>
-                            <button className={`flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded`} onClick={add} disabled={elem.qty<1 || elem.size==="Select Size"} >{elem.size==="Select Size"?'Select Size To Continue':elem.qty<1?'Select Quantity To Continue':'Add To Cart'}</button>
+                            <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded disabled:opacity-50" onClick={add} disabled={elem.qty<1 || elem.size==="Select Size"} >{elem.size==="Select Size"?'Select Size To Continue':elem.qty<1?'Select Quantity To Continue':'Add To Cart'}</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        </>
     )
 }
 

@@ -101,111 +101,112 @@ const Category = ({ input }) => {
 
 
     return (
-        <div className='text-gray-600 body-font lg:pt-16 md:flex md:px-5 lg:px-20 '>
-            <div className="container mx-auto">
-                <div className="flex flex-col lg:flex-row justify-center">
-                    <aside className="sticky z-10 top-0 lg:top-16 flex flex-col w-full lg:w-1/5 bg-white text-black shadow-md shadow-gray-300 p-3 h-auto lg:h-96">
-                        <div className="p-3 text-2xl font-semibold flex justify-between items-center">Filters
-                            {filter ? <FontAwesomeIcon icon={faBars} onClick={toggle} className='mx-3 lg:hidden block rotate-90 text-xl duration-200' /> : <FontAwesomeIcon icon={faBars} onClick={toggle} className='mx-3 lg:hidden block text-xl duration-200' />}
-                        </div>
-                        <div className={`${filter ? `flex` : `hidden`} lg:flex flex-col justify-center items-start py-3`}>
-                            <div className="px-10 lg:px-2">
-                                <div className="mx-1">
-                                    <p className=" w-full justify-center rounded-md bg-white py-2 text-sm font-semibold text-gray-900 shadow-sm" >Sort By</p>
-                                    <div className="mb-[0.125rem] block min-h-[1.5rem]" onClick={ascendingPrice}>
-                                        <input
-                                            className=""
-                                            type="radio"
-                                            name="sort"
-                                            onChange={changeSort}
+        <>
+            <div className={openModal ? "text-gray-600 body-font md:py-10 lg:px-10 xl:px-15 overflow-hidden" : "text-gray-600 body-font md:py-10 lg:px-10 xl:px-15"}>
+                <div className="container mx-auto">
+                    <div className="flex flex-col lg:flex-row justify-center">
+                        <aside className="sticky z-10 top-0 lg:top-16 flex flex-col w-full lg:w-1/5 bg-white text-black shadow-md shadow-gray-300 md:p-3 h-auto lg:h-96">
+                            <div className="p-3 text-2xl font-semibold flex justify-between items-center"><span className='ml-4 md:ml-0'>Filters</span>
+                                {filter ? <FontAwesomeIcon icon={faBars} onClick={toggle} className='mx-3 lg:hidden block rotate-90 text-xl duration-200' /> : <FontAwesomeIcon icon={faBars} onClick={toggle} className='mx-3 lg:hidden block text-xl duration-200' />}
+                            </div>
+                            <div className={`${filter ? `flex` : `hidden`} lg:flex flex-col justify-center items-start py-3`}>
+                                <div className="px-10 lg:px-2">
+                                    <div className="mx-1">
+                                        <p className=" w-full justify-center rounded-md bg-white py-2 text-sm font-semibold text-gray-900 shadow-sm" >Sort By</p>
+                                        <div className="mb-[0.125rem] block min-h-[1.5rem]" onClick={ascendingPrice}>
+                                            <input
+                                                className=""
+                                                type="radio"
+                                                name="sort"
+                                                onChange={changeSort}
 
-                                            id="ascendingPrice"
-                                            value="ascendingPrice"
-                                            checked={option === 'ascendingPrice'} />
-                                        <label
-                                            className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
-                                            htmlFor="ascendingPrice" >
-                                            Ascending Price &uarr;
-                                        </label>
-                                    </div>
-                                    <div className="mb-[0.125rem] block min-h-[1.5rem]" onClick={descendingPrice}>
-                                        <input
-                                            className=""
-                                            type="radio"
-                                            name="sort"
-                                            onChange={changeSort}
-                                            value="descendingPrice"
+                                                id="ascendingPrice"
+                                                value="ascendingPrice"
+                                                checked={option === 'ascendingPrice'} />
+                                            <label
+                                                className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+                                                htmlFor="ascendingPrice" >
+                                                Ascending Price &uarr;
+                                            </label>
+                                        </div>
+                                        <div className="mb-[0.125rem] block min-h-[1.5rem]" onClick={descendingPrice}>
+                                            <input
+                                                className=""
+                                                type="radio"
+                                                name="sort"
+                                                onChange={changeSort}
+                                                value="descendingPrice"
 
-                                            id="descendingPrice"
-                                            checked={option === 'descendingPrice'}
-                                        />
-                                        <label
-                                            className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
-                                            htmlFor="descendingPrice" >
-                                            Descending Price &darr;
-                                        </label>
-                                    </div>
-                                    <div className="mb-[0.125rem] block min-h-[1.5rem]" onClick={atoz}>
-                                        <input
-                                            className=""
-                                            type="radio"
-                                            name="sort"
-                                            onChange={changeSort}
-                                            value="atoz"
+                                                id="descendingPrice"
+                                                checked={option === 'descendingPrice'}
+                                            />
+                                            <label
+                                                className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+                                                htmlFor="descendingPrice" >
+                                                Descending Price &darr;
+                                            </label>
+                                        </div>
+                                        <div className="mb-[0.125rem] block min-h-[1.5rem]" onClick={atoz}>
+                                            <input
+                                                className=""
+                                                type="radio"
+                                                name="sort"
+                                                onChange={changeSort}
+                                                value="atoz"
 
-                                            id="atoz"
-                                            checked={option === 'atoz'}
-                                        />
-                                        <label
-                                            className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
-                                            htmlFor="descendingPrice" >
-                                            A &rarr; Z
-                                        </label>
-                                    </div>
-                                    <div className="mb-[0.125rem] block min-h-[1.5rem]" onClick={ztoa}>
-                                        <input
-                                            className=""
-                                            type="radio"
-                                            name="sort"
-                                            onChange={changeSort}
-                                            value="ztoa"
+                                                id="atoz"
+                                                checked={option === 'atoz'}
+                                            />
+                                            <label
+                                                className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+                                                htmlFor="descendingPrice" >
+                                                A &rarr; Z
+                                            </label>
+                                        </div>
+                                        <div className="mb-[0.125rem] block min-h-[1.5rem]" onClick={ztoa}>
+                                            <input
+                                                className=""
+                                                type="radio"
+                                                name="sort"
+                                                onChange={changeSort}
+                                                value="ztoa"
 
-                                            id="ztoa"
-                                            checked={option === 'ztoa'}
-                                        />
-                                        <label
-                                            className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
-                                            htmlFor="descendingPrice" >
-                                            Z &rarr; A
-                                        </label>
+                                                id="ztoa"
+                                                checked={option === 'ztoa'}
+                                            />
+                                            <label
+                                                className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+                                                htmlFor="descendingPrice" >
+                                                Z &rarr; A
+                                            </label>
+                                        </div>
+
                                     </div>
 
                                 </div>
+                                <div className="px-10 lg:px-2">
 
-                            </div>
-                            <div className="px-10 lg:px-2">
+                                    <div className="mx-1">
+                                        <p className=" w-full justify-center rounded-md bg-white py-2 text-sm font-semibold text-gray-900 shadow-sm" >
+                                            Selected Range : $0-${filterprice}
+                                            <input type="range" className='w-full' min={0} max={maxprice} value={filterprice} onChange={change} name='price' />
+                                            Max Price: ${maxprice}
+                                        </p>
 
-                                <div className="mx-1">
-                                    <p className=" w-full justify-center rounded-md bg-white py-2 text-sm font-semibold text-gray-900 shadow-sm" >
-                                        Selected Range : $0-${filterprice}
-                                        <input type="range" className='w-full' min={0} max={maxprice} value={filterprice} onChange={change} name='price' />
-                                        Max Price: ${maxprice}
-                                    </p>
+                                    </div>
 
                                 </div>
-
                             </div>
-                        </div>
-                    </aside>
-                    
+                        </aside>
 
-                    
 
-                        <section className="text-gray-600 body-font p-5 mx-3 md:px-5 lg:px-10 xl:px-15 w-full md:w-4/5">
+
+
+                        <section className="text-gray-600 body-font pt-5 md:pt-0 px-5 lg:p-5 md:px-5 lg:px-10 xl:px-15 w-full lg:w-4/5">
                             <div className="container mx-auto">
-                                <div className={`flex flex-wrap justify-${filterData.length>0?'start':'center'} -m-4`}>
-                                    {filterData.length>0?filterData.map((element) => {
-                                        return <div key={element.id} className="shadow-md lg:w-1/4 md:w-1/2 my-2 rounded p-3 w-full hover:scale-105 transition ease-in duration-200 ">
+                                <div className={`flex flex-wrap justify-${filterData.length > 0 ? 'start' : 'center'} -m-4`}>
+                                    {filterData.length > 0 ? filterData.map((element) => {
+                                        return <div key={element.id} className="shadow-md mx-3 md:mx-0 lg:w-1/4 md:w-1/2 my-2 rounded p-3 w-full hover:scale-105 transition ease-in duration-200 ">
                                             <Link className="block relative h-48 rounded overflow-hidden">
                                                 <img alt="ecommerce" className="object-center w-full h-full block " src={element.image} />
                                             </Link>
@@ -222,23 +223,24 @@ const Category = ({ input }) => {
                                                 </svg>
                                             </button>
                                         </div>
-                                    }):<Puff
-                                    height="300"
-                                    width="300"
-                                    color="#4338CA"
-                                    radius="100"
-                                    wrapperStyle={{}}
-                                    wrapperclassName=""
-                                    visible={loader}
-                                    ariaLabel="rings-loading" />}
+                                    }) : <Puff
+                                        height="300"
+                                        width="300"
+                                        color="#4338CA"
+                                        radius="100"
+                                        wrapperStyle={{}}
+                                        wrapperclassName=""
+                                        visible={loader}
+                                        ariaLabel="rings-loading" />}
                                 </div>
                             </div>
                         </section>
 
+                    </div>
                 </div>
             </div>
-            {openModal && <Viewer item={modalData} state={setopenModal} />}
-        </div>
+            {openModal && <Viewer item={modalData} state={setopenModal} setmodalData={setmodalData} />}
+        </>
     )
 }
 
