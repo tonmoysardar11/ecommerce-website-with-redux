@@ -27,9 +27,8 @@ const Home = () => {
       <div className='relative overflow-hidden'>
         <div className='w-full h-[50vh] md:h-[70vh] flex transition-transform ease-in duration-600' style={{transform:`translateX(-${img*100}%)`}}>
         {imgArr.map((element, index) => {
-          return <div key={index}>
-            <img src={element} alt="" />
-          </div>
+          
+          return <img key={index} src={element} className='w-screen' alt="" />
         })}
         </div>
         <div className='absolute inset-0 flex justify-between items-center mx-5'>
