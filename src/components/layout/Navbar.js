@@ -89,10 +89,11 @@ const Navbar = () => {
             <nav className="flex flex-col lg:flex-row items-center text-base justify-center">
               <Link
                 to="/all"
-                className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer"
+                className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer relative"
                 onClick={() => setmenu(false)}
               >
-                New
+                New Arrivals
+                  <div class="absolute left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 rounded-full bg-yellow-500 p-1.5 text-xs"></div>
               </Link>
               <Link
                 to="/electronics"
