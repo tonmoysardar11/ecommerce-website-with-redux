@@ -1,14 +1,10 @@
 import React,{useState,useEffect} from 'react'
-import elc from "../../media/electronics.webp";
-import jw from "../../media/jewelery.webp";
-import mens from "../../media/mens.webp";
-import wo from "../../media/womens.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons";
 
-const Carousel = () => {
+const Carousel = ({imgArr}) => {
     
-    const imgArr = [mens, wo, elc, jw];
+    
     const [img, setimg] = useState(0);
   
     const prev = () => {

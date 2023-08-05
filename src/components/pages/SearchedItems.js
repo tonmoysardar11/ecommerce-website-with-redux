@@ -7,7 +7,7 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
   const [modalData, setmodalData] = useState({});
 
   const load = async () => {
-    let fetchedData = await fetch("https://fakestoreapi.com/products");
+    let fetchedData = await fetch("https://dummyjson.com/products");
     let json = await fetchedData.json();
     setdata(data.concat(json));
   };
@@ -57,7 +57,7 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
                       onClick={() => modal(element)}
                     >
                       <p>{element.title}</p>
-                      <img src={element.image} className="w-4" alt="" />
+                      <img src={element.thumbnail} className="w-4" alt="" />
                     </div>
                   );
                 })

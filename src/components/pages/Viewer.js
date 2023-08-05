@@ -1,12 +1,31 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/slices/cartSlice";
 import Alert from "./Alert";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons";
 
 const Viewer = ({ item, state, setmodalData }) => {
+  const [variant, setvariant] = useState('');
   const [elem, setelem] = useState({ ...item, size: "Select Size", qty: 1 });
   const [alert, setalert] = useState(false);
+  const [img, setimg] = useState(0);
+  
+    const prev = () => {
+      setimg(img === 0 ? elem.images.length - 1 : img - 1);
+    };
+    const next = () => {
+      setimg(img === elem.images.length - 1 ? 0 : img + 1);
+    };
+  useEffect(() => {
+    const interval=setInterval(() => {
+      next();
+    }, 4000);
+    return () => {
+      clearInterval(interval);
+    };
+  });
   const dispatch = useDispatch();
   const showalert = () => {
     setalert(true);
@@ -36,21 +55,62 @@ const Viewer = ({ item, state, setmodalData }) => {
         </p>
         <div className="container p-5 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap items-center flex-col md:flex-row">
-            <img
+            {/* <img
               alt="ecommerce"
               className="lg:w-1/3 object-center w-full h-72 lg:h-auto"
-              src={elem.image}
-            />
+              src={elem.thumbnail}
+            /> */}
+
+            <div className="relative overflow-hidden lg:w-1/3 object-center w-full h-72 lg:h-full">
+        <div
+          className="w-full flex transition-transform ease-out duration-500"
+          style={{ transform: `translateX(-${img * 100}%)` }}
+        >
+          {elem.images.map((element, index) => 
+           (
+              <img key={index} src={element} alt="" />
+            )
+          )}
+          
+        </div>
+
+        <div className="absolute inset-0 flex justify-between items-center mx-5">
+          <FontAwesomeIcon
+            onClick={prev}
+            icon={faLessThan}
+            className="p-3 bg-gray-200 bg-opacity-20 hover:bg-opacity-40 cursor-pointer"
+          />
+          <FontAwesomeIcon
+            onClick={next}
+            icon={faGreaterThan}
+            className="p-3 bg-gray-200 bg-opacity-20 hover:bg-opacity-40 cursor-pointer"
+          />
+        </div>
+        <div className="absolute bottom-4 right-0 left-0 flex justify-center items-center">
+          {elem.images.map((_,i)=>(
+            <div key={i} className={`transition-all bg-gray-200 mx-3 w-2 h-2 rounded-full ${img===i?'p-1':'bg-opacity-50'}`}></div>
+          ))}
+          
+        </div>
+      </div>
+
+
+
+
+
             <div className="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0 mx-auto">
               <h1 className="text-gray-500 text-lg title-font font-medium mb-1">
                 {elem.category.charAt(0).toUpperCase() + elem.category.slice(1)}
               </h1>
-              <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+              <h1 className="text-gray-900 text-2xl title-font font-medium mb-1">
                 {elem.title}
+              </h1>
+              <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+                {elem.brand}
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center justify-center">
-                  <span className="text-gray-900">{elem.rating.rate}</span>
+                  <span className="text-gray-900">{elem.rating}</span>
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
@@ -62,9 +122,7 @@ const Viewer = ({ item, state, setmodalData }) => {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
-                  <span className="text-gray-600 ml-3">
-                    {elem.rating.count} Reviews
-                  </span>
+                  
                 </span>
               </div>
               <p className="leading-relaxed">{elem.description}</p>

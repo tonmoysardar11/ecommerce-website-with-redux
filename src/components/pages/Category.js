@@ -22,7 +22,6 @@ const Category = ({ input }) => {
     setloader(true);
     let fetchedData = await fetch(url);
     let json = await fetchedData.json();
-    console.log(json);
     setfilterData(json);
     setitems(json);
     let max = [...json].sort((a, b) => {

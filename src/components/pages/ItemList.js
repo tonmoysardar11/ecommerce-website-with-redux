@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Puff } from "react-loader-spinner";
 import Viewer from "./Viewer";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const ItemList = () => {
   const [data, setdata] = useState([]);
-  const [loader, setloader] = useState(true);
+  const [loader, setloader] = useState(false);
   const [openModal, setopenModal] = useState(false);
   const [modalData, setmodalData] = useState({});
+  const [limit, setlimit] = useState(1);
+  const [totallength, settotallength] = useState(0);
 
   const load = async () => {
-    let fetchedData = await fetch("https://fakestoreapi.com/products");
-    let json = await fetchedData.json();
+    setloader(true);
+    const fetchedData = await fetch(
+      `https://dummyjson.com/products?limit=${4 * limit}`
+    );
+    const json = await fetchedData.json();
     setloader(false);
-    setdata(data.concat(json));
+    setdata(json.products);
+    setlimit(()=>{return limit+1});
+    settotallength(json.total);
   };
+
 
   useEffect(() => {
     load();
@@ -34,63 +43,82 @@ const ItemList = () => {
             : "text-gray-600 body-font py-5  px-7 lg:px-10 xl:px-15 lg:pt-16"
         }
       >
-        <div className="container mx-auto">
-          <div className="flex flex-wrap justify-center -m-4">
-            <Puff
-              height="300"
-              width="300"
-              color="#4338CA"
-              radius="100"
-              wrapperStyle={{}}
-              wrapperclassName=""
-              visible={loader}
-              ariaLabel="rings-loading"
-            />
-            {data.map((element) => {
-              return (
-                <div
-                  key={element.id}
-                  className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full md:hover:scale-110 transition ease-in duration-200"
-                >
-                  <div className="block relative h-48 rounded overflow-hidden">
-                    <img
-                      alt="ecommerce"
-                      className="object-center w-full h-full block "
-                      src={element.image}
-                    />
-                  </div>
-                  <div className="mt-4">
-                    <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      {element.category.charAt(0).toUpperCase() +
-                        element.category.slice(1)}
-                    </h3>
-                    <h2 className="text-gray-900 title-font text-lg font-medium">
-                      {element.title}
-                    </h2>
-                    <p className="mt-1">${element.price}</p>
-                  </div>
-                  <button
-                    className="text-indigo-500 flex items-center md:mb-2 lg:mb-0 text-xl cursor-pointer"
-                    onClick={() => modal(element)}
+        <div className="container mx-auto ">
+          <InfiniteScroll
+            dataLength={data.length}
+            next={load}
+            hasMore={!(data.length===totallength)}
+            loader={
+              <Puff
+                height="300"
+                width="300"
+                color="#4338CA"
+                radius="100"
+                wrapperStyle={{}}
+                wrapperclassName=""
+                visible={loader}
+                ariaLabel="rings-loading"
+              />
+            }
+            className={loader ? "flex justify-center flex-col items-center" : ""}
+            endMessage={
+              <p style={{ textAlign: "center" }}>
+                <b>Yay! You have seen it all</b>
+              </p>
+            }
+          >
+            <div className="flex flex-wrap justify-center">
+              {data.map((element) => {
+                return (
+                  <div
+                    key={element.id}
+                    className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full md:hover:scale-110 transition ease-in duration-200"
                   >
-                    View
-                    <svg
-                      className="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                    <div className="block relative h-48 rounded overflow-hidden">
+                    
+                      <img
+                        alt={element.title}
+                        className="object-center w-full h-full block "
+                        src={element.thumbnail}
+                      />
+                    </div>
+                    <div className="mt-4">
+                      <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                        {element.category.charAt(0).toUpperCase() +
+                          element.category.slice(1)}
+                      </h3>
+                      <h2 className="text-gray-900 title-font text-lg font-medium">
+                        {element.title}
+                      </h2>
+                      <h3 className="text-gray-500 text-sm tracking-widest title-font mb-1">
+                        {element.brand.charAt(0).toUpperCase() +
+                          element.brand.slice(1)}
+                      </h3>
+                      <p className="mt-1">${element.price}</p>
+                    </div>
+                    <button
+                      className="text-indigo-500 flex items-center md:mb-2 lg:mb-0 text-xl cursor-pointer"
+                      onClick={() => modal(element)}
                     >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              );
-            })}
-          </div>
+                      View
+                      <svg
+                        className="w-4 h-4 ml-2"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                      </svg>
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </InfiniteScroll>
         </div>
       </section>
       {openModal && (
