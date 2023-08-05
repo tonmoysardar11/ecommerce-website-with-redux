@@ -6,11 +6,13 @@ import Home from "./components/pages/Home";
 import Category from "./components/pages/Category";
 import Footer from "./components/layout/Footer";
 import ItemList from "./components/pages/ItemList";
+import CategoryList from "./components/pages/CategoryList";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      <CategoryList/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/cart" element={<Cart />} />

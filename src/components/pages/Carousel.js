@@ -52,6 +52,8 @@ const Carousel = ({imgArr}) => {
           ))}
           
         </div>
+
+        {/* <img src="https://source.unsplash.com/random/100x100/?mobile" alt="" /> */}
       </div>
   )
 }
