@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faMagnifyingGlass,
-  faBars,
   faCartArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -11,13 +10,10 @@ import SearchedItems from "../pages/SearchedItems";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const [menu, setmenu] = useState(false);
   const [search, setsearch] = useState("");
   const [focus, setfocus] = useState(false);
   const [hover, sethover] = useState(false);
-  const toggle = () => {
-    setmenu(!menu);
-  };
+  
 
   const change = (e) => {
     setsearch(e.target.value);
@@ -51,7 +47,7 @@ const Navbar = () => {
               myCart
             </span>
           </Link>
-          <div className="w-1/2 md:w-1/3 flex justify-center items-center">
+          <div className="w-2/3 md:w-1/2 flex justify-center items-center">
             <div className="w-full md:w-4/5 flex justify-center items-center rounded border border-gray-300">
               <input
                 type="text"
@@ -67,84 +63,34 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          {menu ? (
-            <FontAwesomeIcon
-              icon={faBars}
-              onClick={toggle}
-              className=" mx-2 lg:hidden block rotate-90 text-xl duration-200"
-            />
-          ) : (
-            <FontAwesomeIcon
-              icon={faBars}
-              onClick={toggle}
-              className=" mx-2 lg:hidden block text-xl duration-200"
-            />
-          )}
-
-          <div
-            className={` ${
-              menu ? `flex` : `hidden`
-            } flex-col lg:flex-row justify-center items-center lg:flex py-4 lg:py-0 w-full lg:w-1/2`}
-          >
-            <nav className="flex flex-col lg:flex-row items-center text-base justify-center">
-              <Link
-                to="/all"
-                className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer relative"
-                onClick={() => setmenu(false)}
-              >
-                New Arrivals
-                  <div class="absolute left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 rounded-full bg-yellow-500 p-1.5 text-xs"></div>
-              </Link>
-              <Link
-                to="/electronics"
-                className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer"
-                onClick={() => setmenu(false)}
-              >
-                Electronics
-              </Link>
-              <Link
-                to="/jewelery"
-                className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer"
-                onClick={() => setmenu(false)}
-              >
-                Jewelery
-              </Link>
-              <Link
-                to="/mens"
-                className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer"
-                onClick={() => setmenu(false)}
-              >
-                Mens Clothings
-              </Link>
-              <Link
-                to="/womens"
-                className="py-2 lg:py-0 mr-5 hover:text-gray-300 cursor-pointer"
-                onClick={() => setmenu(false)}
-              >
-                Womens Clothings
-              </Link>
-              <Link to="/cart" onClick={() => setmenu(false)}>
-                <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0">
-                  {" "}
-                  Cart{" "}
-                  {TotalQty > 0 ? (
-                    <FontAwesomeIcon
-                      icon={faCartArrowDown}
-                      className="m-1 text-xl cursor-pointer"
-                    />
-                  ) : (
-                    <FontAwesomeIcon
-                      icon={faCartShopping}
-                      className="m-1 text-xl cursor-pointer"
-                    />
-                  )}
-                  <p className="mx-1 px-2 flex justify-center items-center text-black bg-yellow-500 rounded-full">
-                    {TotalQty}{" "}
-                  </p>
-                </button>
-              </Link>
-            </nav>
-          </div>
+          <nav className="w-full lg:w-max">
+          <Link to="/cart">
+            <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0">
+              {" "}
+              Cart{" "}
+              {TotalQty > 0 ? (
+                <FontAwesomeIcon
+                  icon={faCartArrowDown}
+                  className="m-1 text-xl cursor-pointer"
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faCartShopping}
+                  className="m-1 text-xl cursor-pointer"
+                />
+              )}
+              <p className="mx-1 px-2 flex justify-center items-center text-black bg-yellow-500 rounded-full">
+                {TotalQty}{" "}
+              </p>
+            </button>
+          </Link>
+          <Link to="">
+            <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0">
+              Become Prime Member
+            </button>
+          </Link>
+          </nav>
+          
         </div>
       </header>
       {search && (

@@ -24,7 +24,7 @@ const Carousel = ({imgArr}) => {
   return (
     <div className="relative overflow-hidden">
         <div
-          className="w-full h-[50vh] md:h-[70vh] flex transition-transform ease-out duration-500"
+          className="w-full h-[50vh] md:h-[75vh] flex transition-transform ease-out duration-500"
           style={{ transform: `translateX(-${img * 100}%)` }}
         >
           {imgArr.map((element, index) => 
@@ -46,9 +46,9 @@ const Carousel = ({imgArr}) => {
             className="p-3 bg-gray-200 bg-opacity-20 hover:bg-opacity-40 cursor-pointer"
           />
         </div>
-        <div className="absolute bottom-4 right-0 left-0 flex justify-center items-center">
+        <div className="absolute bottom-9 right-0 left-0 flex justify-center items-center">
           {imgArr.map((_,i)=>(
-            <div key={i} className={`transition-all bg-gray-500 mx-3 w-3 h-3 rounded-full ${img===i?'p-2':'bg-opacity-50'}`}></div>
+            <div key={i} className={`transition-all bg-gray-100 mx-3 w-3 h-3 rounded-full ${img===i?'p-1':'bg-opacity-50'}`}></div>
           ))}
           
         </div>
