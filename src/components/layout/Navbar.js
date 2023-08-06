@@ -13,7 +13,6 @@ const Navbar = () => {
   const [search, setsearch] = useState("");
   const [focus, setfocus] = useState(false);
   const [hover, sethover] = useState(false);
-  
 
   const change = (e) => {
     setsearch(e.target.value);
@@ -64,33 +63,32 @@ const Navbar = () => {
             </div>
           </div>
           <nav className="w-full lg:w-max">
-          <Link to="/cart">
-            <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0">
-              {" "}
-              Cart{" "}
-              {TotalQty > 0 ? (
-                <FontAwesomeIcon
-                  icon={faCartArrowDown}
-                  className="m-1 text-xl cursor-pointer"
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faCartShopping}
-                  className="m-1 text-xl cursor-pointer"
-                />
-              )}
-              <p className="mx-1 px-2 flex justify-center items-center text-black bg-yellow-500 rounded-full">
-                {TotalQty}{" "}
-              </p>
-            </button>
-          </Link>
-          <Link to="">
-            <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0">
-              Become Prime Member
-            </button>
-          </Link>
+            <Link to="/cart">
+              <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0">
+                {" "}
+                Cart{" "}
+                {TotalQty > 0 ? (
+                  <FontAwesomeIcon
+                    icon={faCartArrowDown}
+                    className="m-1 text-xl cursor-pointer"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faCartShopping}
+                    className="m-1 text-xl cursor-pointer"
+                  />
+                )}
+                <p className="mx-1 px-2 flex justify-center items-center text-black bg-yellow-500 rounded-full">
+                  {TotalQty}{" "}
+                </p>
+              </button>
+            </Link>
+            <Link to="">
+              <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0">
+                Become Prime Member
+              </button>
+            </Link>
           </nav>
-          
         </div>
       </header>
       {search && (

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Puff } from "react-loader-spinner";
@@ -17,14 +16,14 @@ const Category = ({ input }) => {
   const [modalData, setmodalData] = useState({});
 
   const load = async () => {
-    let url = `https://fakestoreapi.com/products/category/${input}`;
+    let url = `https://dummyjson.com/products/category/${input}`;
     setfilterData([]);
     setloader(true);
     let fetchedData = await fetch(url);
     let json = await fetchedData.json();
-    setfilterData(json);
-    setitems(json);
-    let max = [...json].sort((a, b) => {
+    setfilterData(json.products);
+    setitems(json.products);
+    let max = [...json.products].sort((a, b) => {
       return b.price - a.price;
     });
     let price = max[0].price;
@@ -234,14 +233,15 @@ const Category = ({ input }) => {
                         <div
                           key={element.id}
                           className="shadow-md mx-3 md:mx-0 lg:w-1/4 md:w-1/2 my-2 rounded p-3 w-full hover:scale-105 transition ease-in duration-200 "
+                          onClick={() => modal(element)}
                         >
-                          <Link className="block relative h-48 rounded overflow-hidden">
+                          <div className="block relative h-48 rounded overflow-hidden">
                             <img
-                              alt="ecommerce"
+                              alt=""
                               className="object-center w-full h-full block "
-                              src={element.image}
+                              src={element.thumbnail}
                             />
-                          </Link>
+                          </div>
                           <div className="mt-4">
                             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                               {element.category.charAt(0).toUpperCase() +
@@ -250,26 +250,11 @@ const Category = ({ input }) => {
                             <h2 className="text-gray-900 title-font text-lg font-medium">
                               {element.title}
                             </h2>
+                            <h2 className="text-gray-900 title-font text-md font-medium">
+                              {element.brand}
+                            </h2>
                             <p className="mt-1">${element.price}</p>
                           </div>
-                          <button
-                            className="text-indigo-500 flex items-center md:mb-2 lg:mb-0 text-xl cursor-pointer"
-                            onClick={() => modal(element)}
-                          >
-                            View
-                            <svg
-                              className="w-4 h-4 ml-2"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              fill="none"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <path d="M5 12h14"></path>
-                              <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                          </button>
                         </div>
                       );
                     })

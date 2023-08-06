@@ -73,6 +73,7 @@ const ItemList = () => {
                   <div
                     key={element.id}
                     className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full md:hover:scale-110 transition ease-in duration-200"
+                    onClick={() => modal(element)}
                   >
                     <div className="block relative h-48 rounded overflow-hidden">
                     
@@ -96,24 +97,6 @@ const ItemList = () => {
                       </h3>
                       <p className="mt-1">${element.price}</p>
                     </div>
-                    <button
-                      className="text-indigo-500 flex items-center md:mb-2 lg:mb-0 text-xl cursor-pointer"
-                      onClick={() => modal(element)}
-                    >
-                      View
-                      <svg
-                        className="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </button>
                   </div>
                 );
               })}

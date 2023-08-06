@@ -9,7 +9,7 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
   const load = async () => {
     let fetchedData = await fetch("https://dummyjson.com/products");
     let json = await fetchedData.json();
-    setdata(data.concat(json));
+    setdata(data.concat(json.products));
   };
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
     <>
       {focus && (
         <div
-          className="absolute top-14 left-5 md:left-72 z-30 mt-2 w-90 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute top-14 left-5 md:left-96 z-30 mt-2 w-90 md:w-[30vw] origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"
@@ -57,7 +57,7 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
                       onClick={() => modal(element)}
                     >
                       <p>{element.title}</p>
-                      <img src={element.thumbnail} className="w-4" alt="" />
+                      <img src={element.thumbnail} className="w-10" alt="" />
                     </div>
                   );
                 })

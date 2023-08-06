@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/slices/cartSlice";
 import Alert from "./Alert";
@@ -7,19 +7,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons";
 
 const Viewer = ({ item, state, setmodalData }) => {
-  const [variant, setvariant] = useState('');
+  const [variant, setvariant] = useState("");
   const [elem, setelem] = useState({ ...item, size: "Select Size", qty: 1 });
   const [alert, setalert] = useState(false);
   const [img, setimg] = useState(0);
-  
-    const prev = () => {
-      setimg(img === 0 ? elem.images.length - 1 : img - 1);
-    };
-    const next = () => {
-      setimg(img === elem.images.length - 1 ? 0 : img + 1);
-    };
+
+  const prev = () => {
+    setimg(img === 0 ? elem.images.length - 1 : img - 1);
+  };
+  const next = () => {
+    setimg(img === elem.images.length - 1 ? 0 : img + 1);
+  };
   useEffect(() => {
-    const interval=setInterval(() => {
+    const interval = setInterval(() => {
       next();
     }, 4000);
     return () => {
@@ -43,7 +43,7 @@ const Viewer = ({ item, state, setmodalData }) => {
   return (
     <>
       {alert && <Alert />}
-      <section className="fixed top-3 left-2 right-2 max-h-[40rem] overflow-scroll md:top-24 md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+      <section className="fixed top-3 left-2 right-2 h-[40rem] lg:h-[80vh] overflow-scroll md:top-24 md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
         <p
           className="text-lg title-font text-gray-500 tracking-widest text-right mr-5 mt-1 cursor-pointer"
           onClick={() => {
@@ -55,48 +55,44 @@ const Viewer = ({ item, state, setmodalData }) => {
         </p>
         <div className="container p-5 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap items-center flex-col md:flex-row">
-            {/* <img
-              alt="ecommerce"
-              className="lg:w-1/3 object-center w-full h-72 lg:h-auto"
-              src={elem.thumbnail}
-            /> */}
+            <div className="relative overflow-hidden lg:w-1/3 object-center w-full h-96 lg:h-[60vh]">
+              <div
+                className="w-full flex transition-transform ease-out duration-500"
+                style={{ transform: `translateX(-${img * 100}%)` }}
+              >
+                {elem.images.map((element, index) => (
+                  <img
+                    key={index}
+                    src={element}
+                    alt=""
+                    className="h-96 lg:h-[60vh]"
+                  />
+                ))}
+              </div>
 
-            <div className="relative overflow-hidden lg:w-1/3 object-center w-full h-72 lg:h-full">
-        <div
-          className="w-full flex transition-transform ease-out duration-500"
-          style={{ transform: `translateX(-${img * 100}%)` }}
-        >
-          {elem.images.map((element, index) => 
-           (
-              <img key={index} src={element} alt="" />
-            )
-          )}
-          
-        </div>
-
-        <div className="absolute inset-0 flex justify-between items-center mx-5">
-          <FontAwesomeIcon
-            onClick={prev}
-            icon={faLessThan}
-            className="p-3 bg-gray-200 bg-opacity-20 hover:bg-opacity-40 cursor-pointer"
-          />
-          <FontAwesomeIcon
-            onClick={next}
-            icon={faGreaterThan}
-            className="p-3 bg-gray-200 bg-opacity-20 hover:bg-opacity-40 cursor-pointer"
-          />
-        </div>
-        <div className="absolute bottom-4 right-0 left-0 flex justify-center items-center">
-          {elem.images.map((_,i)=>(
-            <div key={i} className={`transition-all bg-gray-200 mx-3 w-2 h-2 rounded-full ${img===i?'p-1':'bg-opacity-50'}`}></div>
-          ))}
-          
-        </div>
-      </div>
-
-
-
-
+              <div className="absolute inset-0 flex justify-between items-center mx-5">
+                <FontAwesomeIcon
+                  onClick={prev}
+                  icon={faLessThan}
+                  className="p-3 bg-gray-200 bg-opacity-20 hover:bg-opacity-40 cursor-pointer"
+                />
+                <FontAwesomeIcon
+                  onClick={next}
+                  icon={faGreaterThan}
+                  className="p-3 bg-gray-200 bg-opacity-20 hover:bg-opacity-40 cursor-pointer"
+                />
+              </div>
+              <div className="absolute bottom-4 right-0 left-0 flex justify-center items-center">
+                {elem.images.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`transition-all bg-gray-200 mx-3 w-2 h-2 rounded-full ${
+                      img === i ? "p-1" : "bg-opacity-50"
+                    }`}
+                  ></div>
+                ))}
+              </div>
+            </div>
 
             <div className="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0 mx-auto">
               <h1 className="text-gray-500 text-lg title-font font-medium mb-1">
@@ -122,7 +118,6 @@ const Viewer = ({ item, state, setmodalData }) => {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                   </svg>
-                  
                 </span>
               </div>
               <p className="leading-relaxed">{elem.description}</p>

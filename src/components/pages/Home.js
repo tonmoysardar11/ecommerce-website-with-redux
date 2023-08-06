@@ -6,6 +6,7 @@ import womens from '../../media/womens.webp'
 import elec from '../../media/elec.webp'
 import ess from '../../media/ess.webp'
 import fur from '../../media/fur.webp'
+import CategoryList from "./CategoryList";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
   const imgArr = [mens, womens, elec, ess,fur];
   return (
     <div className="lg:pt-12">
+      <CategoryList/>
       <Carousel imgArr={imgArr}/>
       <ItemList />
     </div>
