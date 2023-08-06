@@ -7,8 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons";
 
 const Viewer = ({ item, state, setmodalData }) => {
-  const [variant, setvariant] = useState("");
-  const [elem, setelem] = useState({ ...item, size: "Select Size", qty: 1 });
+  const [elem, setelem] = useState({ ...item,  qty: 1 });
   const [alert, setalert] = useState(false);
   const [img, setimg] = useState(0);
 
@@ -151,7 +150,7 @@ const Viewer = ({ item, state, setmodalData }) => {
                     </button>
                   </div>
                 </div>
-                <div className="flex my-3 md:ml-6 items-center">
+                {/* <div className={"flex my-3 md:ml-6 items-center"}>
                   <span className="mr-3">Size</span>
                   <div className="relative">
                     <select
@@ -186,7 +185,7 @@ const Viewer = ({ item, state, setmodalData }) => {
                       </svg>
                     </span>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
@@ -195,20 +194,16 @@ const Viewer = ({ item, state, setmodalData }) => {
                 <button
                   className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded disabled:opacity-50"
                   onClick={add}
-                  disabled={elem.qty < 1 || elem.size === "Select Size"}
+                  disabled={elem.qty < 1 }
                 >
-                  {elem.size === "Select Size"
-                    ? "Select Size To Continue"
-                    : elem.qty < 1
+                  {elem.qty < 1
                     ? "Select Quantity To Continue"
                     : "Add To Cart"}
                 </button>
                 <Link to="/cart">
                   <button
                     className={
-                      elem.size === "Select Size"
-                        ? " hidden py-2 lg:py-0 inline-flex items-center bg-yellow-500 border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"
-                        : elem.qty < 1
+                      elem.qty < 1
                         ? " hidden py-2 lg:py-0 inline-flex items-center bg-yellow-500 border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"
                         : "py-2 lg:py-0 inline-flex items-center bg-yellow-500 border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"
                     }
