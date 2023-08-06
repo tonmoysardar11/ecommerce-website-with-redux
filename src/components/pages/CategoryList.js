@@ -22,9 +22,9 @@ import { Link } from "react-router-dom";
 const CategoryList = () => {
   return (
     <section className="text-gray-600 body-font">
-      <div className="mx-auto">
-        <div className="flex flex-wrap justify-between md:justify-center sm:justify-center">
-          <Link to="/smartphones" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-1/9 sm:w-24">
+      <div className="mx-auto my-5">
+        <div className="flex flex-wrap justify-center md:grid md:grid-rows-2 md:grid-cols-9">
+          <Link to="/smartphones" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-1/9 sm:w-24">
             <div>
               <img src={phone} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -32,7 +32,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/laptops" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/laptops" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={laptop} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -40,7 +40,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/fragrances" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/fragrances" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={frag} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -48,7 +48,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/skincare" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/skincare" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={sk} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -56,7 +56,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/groceries" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/groceries" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={gro} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -64,7 +64,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/home-decoration" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/home-decoration" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={hdcor} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -72,7 +72,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/furniture" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/furniture" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={fur} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -80,13 +80,13 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/tops" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/tops" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={top} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">Tops</h6>
             </div>
           </Link>
-          <Link to="/womens-dresses" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/womens-dresses" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={wdress} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -94,7 +94,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/womens-shoes" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/womens-shoes" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={wshoe} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -102,7 +102,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/mens-shirts" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/mens-shirts" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={mshirt} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -110,7 +110,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/mens-shoes" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/mens-shoes" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={mshoe} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -118,7 +118,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/mens-watches" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/mens-watches" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={mwatch} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -126,7 +126,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/womens-watches" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/womens-watches" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={wwatches} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -134,7 +134,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/womens-bags" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/womens-bags" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={wbags} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -142,7 +142,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/womens-jewellery" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/womens-jewellery" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={wjewel} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -150,7 +150,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/sunglasses" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/sunglasses" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={sg} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
@@ -158,7 +158,7 @@ const CategoryList = () => {
               </h6>
             </div>
           </Link>
-          <Link to="/lighting" className="m-1 p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
+          <Link to="/lighting" className="mx-auto p-1 hover:shadow-md hover:shadow-black flex flex-col justify-center items-center w-28 sm:w-24">
             <div >
               <img src={light} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">

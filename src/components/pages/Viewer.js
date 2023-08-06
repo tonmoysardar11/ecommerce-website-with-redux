@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons";
 
 const Viewer = ({ item, state, setmodalData }) => {
-  const [elem, setelem] = useState({ ...item,  qty: 1 });
+  const [elem, setelem] = useState({ ...item, qty: 1 });
   const [alert, setalert] = useState(false);
   const [img, setimg] = useState(0);
 
@@ -40,7 +40,7 @@ const Viewer = ({ item, state, setmodalData }) => {
   };
 
   return (
-    <>
+    <section className="fixed top-0 left-0 right-0 bottom-0 bg-opacity-70 backdrop-filter backdrop-blur-sm">
       {alert && <Alert />}
       <section className="fixed top-3 left-2 right-2 h-[40rem] lg:h-[80vh] overflow-scroll md:top-24 md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
         <p
@@ -105,7 +105,7 @@ const Viewer = ({ item, state, setmodalData }) => {
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center justify-center">
-                  <span className="text-gray-900">{elem.rating}</span>
+                  <span className="text-gray-900">{Number(elem.rating).toFixed(1)}</span>
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
@@ -191,24 +191,22 @@ const Viewer = ({ item, state, setmodalData }) => {
                 <span className="title-font font-medium text-2xl text-gray-900">
                   ${elem.price}
                 </span>
+
                 <button
-                  className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded disabled:opacity-50"
+                  className="flex ml-auto text-white bg-gray-900 border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 rounded disabled:opacity-50"
                   onClick={add}
-                  disabled={elem.qty < 1 }
+                  disabled={elem.qty < 1}
                 >
-                  {elem.qty < 1
-                    ? "Select Quantity To Continue"
-                    : "Add To Cart"}
+                  {elem.qty < 1 ? "Select Quantity To Continue" : "Add To Cart"}
                 </button>
-                <Link to="/cart">
+                <Link to="/cart" className="mx-2">
                   <button
                     className={
                       elem.qty < 1
-                        ? " hidden py-2 lg:py-0 inline-flex items-center bg-yellow-500 border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"
-                        : "py-2 lg:py-0 inline-flex items-center bg-yellow-500 border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0"
+                        ? " hidden"
+                        : "flex ml-auto text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded disabled:opacity-50"
                     }
                   >
-                    {" "}
                     Go To Cart
                   </button>
                 </Link>
@@ -217,7 +215,7 @@ const Viewer = ({ item, state, setmodalData }) => {
           </div>
         </div>
       </section>
-    </>
+    </section>
   );
 };
 

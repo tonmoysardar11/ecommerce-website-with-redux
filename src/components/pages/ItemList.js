@@ -76,7 +76,7 @@ const ItemList = () => {
                 return (
                   <div
                     key={element.id}
-                    className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full md:hover:scale-110 transition ease-in duration-200"
+                    className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full md:hover:scale-110 transition ease-in duration-200 cursor-pointer"
                     onClick={() => modal(element)}
                   >
                     <div className="block relative h-48 rounded overflow-hidden">

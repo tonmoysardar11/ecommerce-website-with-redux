@@ -43,16 +43,16 @@ const Cart = () => {
                     <h2 className="font-semibold text-2xl">{TotalQty} Items</h2>
                   </div>
                   <div className="flex mt-10 mb-5 w-full">
-                    <h3 className="font-semibold text-gray-600 text-xs uppercase w-3/5 md:w-2/5">
+                    <h3 className="font-semibold text-gray-600 text-xs   w-3/5 md:w-2/5">
                       Product Details
                     </h3>
-                    <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+                    <h3 className="font-semibold text-center text-gray-600 text-xs   w-1/5 text-center">
                       Quantity
                     </h3>
-                    <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center hidden md:block">
+                    <h3 className="font-semibold text-center text-gray-600 text-xs   w-1/5 text-center hidden md:block">
                       Price
                     </h3>
-                    <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+                    <h3 className="font-semibold text-center text-gray-600 text-xs   w-1/5 text-center">
                       Total
                     </h3>
                   </div>
@@ -78,7 +78,7 @@ const Cart = () => {
                               Size: {element.size}
                             </span>
                             <button
-                              className="bg-red-500 hover:bg-red-600 p-2 w-32 text-sm text-white uppercase"
+                              className=" rounded-md bg-red-700 hover:bg-red-600 p-2 w-32 text-sm text-white  "
                               onClick={() => dispatch(removeItem(element.id))}
                             >
                               Remove
@@ -111,7 +111,7 @@ const Cart = () => {
                     Continue Shopping
                   </Link>
                   <button
-                    className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm  my-3 text-white uppercase"
+                    className=" rounded-md bg-yellow-500 hover:bg-red-600 px-5 py-2 text-sm  my-3 text-white  "
                     onClick={() => dispatch(clearCart())}
                   >
                     Clear Cart
@@ -123,7 +123,7 @@ const Cart = () => {
                     Order Summary
                   </h1>
                   <div className="flex justify-between mt-10 mb-5">
-                    <span className="font-semibold text-sm uppercase">
+                    <span className="font-semibold text-sm  ">
                       Items {TotalQty}
                     </span>
                     <span className="font-semibold text-sm">${TotalPrice}</span>
@@ -136,7 +136,7 @@ const Cart = () => {
                   <div className="py-10">
                     <label
                       htmlFor="promo"
-                      className="font-semibold inline-block mb-3 text-sm uppercase"
+                      className="font-semibold inline-block mb-3 text-sm  "
                     >
                       Promo Code
                     </label>
@@ -155,7 +155,7 @@ const Cart = () => {
                     </p>
                   </div>
                   <button
-                    className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase"
+                    className="bg-yellow-500 hover:bg-yellow-600 px-5 py-2 text-sm text-white  "
                     onClick={check}
                     disabled={TotalPrice <= 200}
                   >
@@ -174,12 +174,12 @@ const Cart = () => {
                       ? "Invalid Promo"
                       : "Coupon Applied"}
                   </p>
-                  <div className="flex font-semibold justify-between py-3 text-sm uppercase">
+                  <div className="flex font-semibold justify-between py-3 text-sm  ">
                     <span>Discount</span>
                     <span>${discount ? 11 : 0}</span>
                   </div>
                   <div className="border-t mt-8">
-                    <div className="flex font-semibold justify-between py-6 text-sm uppercase">
+                    <div className="flex font-semibold justify-between py-6 text-sm  ">
                       <span>Total cost</span>
                       <span>${TotalPrice - (discount ? 11 : 0)}</span>
                     </div>
@@ -241,7 +241,7 @@ const Cart = () => {
                     />
                   </div>
                   <button
-                    className="bg-indigo-700 font-semibold hover:bg-indigo-500 py-3 text-sm text-white uppercase w-full disabled:opacity-50"
+                    className="bg-gray-900 font-semibold hover:bg-gray-700 py-3 text-sm text-white   w-full disabled:opacity-50"
                     onClick={() => setplaced(true)}
                     disabled={name < 3 || address < 6 || mobile < 10}
                   >
@@ -277,7 +277,7 @@ const Cart = () => {
                 </p>
                 <Link to="/">
                   {" "}
-                  <button className="bg-indigo-500 text-white font-semibold py-2 px-4 rounded mt-4">
+                  <button className="bg-gray-900 text-white font-semibold py-2 px-4 rounded mt-4">
                     Shop Now
                   </button>
                 </Link>

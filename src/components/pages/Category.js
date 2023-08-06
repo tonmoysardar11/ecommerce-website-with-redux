@@ -91,7 +91,7 @@ const Category = ({ input }) => {
       >
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row justify-center">
-            <aside className="sticky z-10 top-0 lg:top-16 flex flex-col w-full lg:w-1/5 bg-white text-black shadow-md shadow-gray-300 md:p-3 h-auto lg:h-96">
+            <aside className="sticky top-0 lg:top-16 flex flex-col w-full lg:w-1/5 bg-white text-black shadow-md shadow-gray-300 md:p-3 h-auto lg:h-96">
               <div className="p-3 text-2xl font-semibold flex justify-between items-center">
                 <span className="ml-4 md:ml-0">Filters</span>
                 {filter ? (
@@ -232,7 +232,7 @@ const Category = ({ input }) => {
                       return (
                         <div
                           key={element.id}
-                          className="shadow-md mx-3 md:mx-0 lg:w-1/4 md:w-1/2 my-2 rounded p-3 w-full hover:scale-105 transition ease-in duration-200 "
+                          className="shadow-md mx-3 md:mx-0 lg:w-1/4 md:w-1/2 my-2 rounded p-3 w-full hover:scale-105 transition ease-in duration-200 cursor-pointer"
                           onClick={() => modal(element)}
                         >
                           <div className="block relative h-48 rounded overflow-hidden">
