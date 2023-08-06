@@ -27,8 +27,8 @@ function App() {
         />
         <Route
           exact
-          path="/fragnances"
-          element={<Category input="fragnances" />}
+          path="/fragrances"
+          element={<Category input="fragrances" />}
         />
         <Route
           exact

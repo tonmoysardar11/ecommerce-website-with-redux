@@ -36,11 +36,11 @@ const Navbar = () => {
   const TotalQty = list.length > 0 ? list.reduce((a, b) => a + b.qty, 0) : 0;
   return (
     <>
-      <header className="lg:fixed w-full z-20 text-gray-100 bg-indigo-700 body-font px-3 md:px-5 lg:px-10 xl:px-15">
+      <header className="lg:fixed w-full z-20 text-gray-100 bg-gray-900 body-font px-3 md:px-5 lg:px-10 xl:px-15">
         <div className="w-full mx-auto flex flex-wrap px-1 md:px-5 py-2 justify-between items-center">
           <Link
             to="/"
-            className="flex title-font font-medium items-center text-gray-900 md:mb-0"
+            className="flex title-font font-medium items-center md:mb-0"
           >
             <span className="ml-3 text-2xl text-gray-100 font-semibold cursor-pointer">
               myCart
@@ -57,7 +57,7 @@ const Navbar = () => {
                 onFocus={activeFocus}
                 onBlur={activeBlur}
               />
-              <div className="px-2 text-xl md:text-2xl cursor-pointer hover:bg-white hover:text-indigo-700">
+              <div className="px-2 text-xl md:text-2xl cursor-pointer hover:bg-white hover:text-gray-900">
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </div>
             </div>

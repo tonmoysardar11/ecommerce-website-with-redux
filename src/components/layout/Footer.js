@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="text-gray-100 body-font ">
       <div className="bg-gray-800 container px-5 py-14 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col px-3 md:px-5 lg:px-10 xl:px-15">
-        <div className="w-full md:w-1/4 flex flex-col justify-start items-center mt-10 md:mt-0">
+        <div className="w-full md:w-1/6 flex flex-col justify-start items-center mt-10 md:mt-0">
           <Link
             to="/"
             className="flex title-font font-medium items-center md:justify-start justify-center text-gray-300"
@@ -16,50 +16,157 @@ const Footer = () => {
           </Link>
           <p className="mt-2 text-sm text-gray-100">Anything to Everything</p>
         </div>
-        <div className="w-full md:w-1/4 flex flex-col justify-center items-center flex-wrap -mb-10 text-center my-5 md:my-0">
-          <div className="md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-300 tracking-widest text-sm mb-3">
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center flex-wrap -mb-10 text-center my-5 md:my-0">
+          <div className="w-full px-4">
+            <h2 className="title-font font-bold text-gray-300 tracking-widest text-sm mb-3">
               CATEGORIES
             </h2>
-            <nav className="list-none mb-10 md:mb-2">
-              <li>
-                <Link
-                  to="/electronics"
-                  className="text-gray-100 hover:text-gray-300"
-                >
-                  Electronics
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/jewelery"
-                  className="text-gray-100 hover:text-gray-300"
-                >
-                  Jewelery
-                </Link>
-              </li>
-              <li>
-                <Link to="/mens" className="text-gray-100 hover:text-gray-300">
-                  Mens
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/womens"
-                  className="text-gray-100 hover:text-gray-300"
-                >
-                  Womens
-                </Link>
-              </li>
-            </nav>
+            <div className="flex justify-between">
+              <nav className="list-none text-left mb-10 md:mb-2">
+                <li>
+                  <Link
+                    to="/smartphones"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Smartphones
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/laptops"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Laptops
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/groceries"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Groceries
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/skincare"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Skin Care
+                  </Link>
+                </li>
+              </nav>
+              <nav className="list-none text-left mb-10 md:mb-2">
+                <li>
+                  <Link
+                    to="/home-decoration"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Home Decors
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/furniture"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Furniture
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/womens-dresses"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Womens dresses
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/tops"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Tops
+                  </Link>
+                </li>
+              </nav>
+              <nav className="list-none text-left mb-10 md:mb-2">
+                <li>
+                  <Link
+                    to="/womens-shoes"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Womens Shoes
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/mens-shirts"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Mens Shirts
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/mens-shoes"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Mens Shoes
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/mens-watches"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Mens Watches
+                  </Link>
+                </li>
+              </nav>
+              <nav className="list-none text-left mb-10 md:mb-2">
+                <li>
+                  <Link
+                    to="/womens-watches"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Womens Watches
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/womens-bags"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Womens Bags
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/womens-jewellery"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Jewellery
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/sunglasses"
+                    className="text-gray-100 hover:text-gray-300"
+                  >
+                    Sunglasses
+                  </Link>
+                </li>
+              </nav>
+            </div>
           </div>
         </div>
-        <div className="w-full md:w-1/4 flex flex-col justify-center items-center flex-wrap -mb-10 text-center my-5 md:my-0">
+        <div className="w-full md:w-1/6 flex flex-col justify-center items-center flex-wrap -mb-10 text-center my-5 md:my-0">
           <div className="md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-300 tracking-widest text-sm mb-3">
+            <h2 className="title-font font-bold text-gray-300 tracking-widest text-sm mb-3">
               SUPPORT
             </h2>
-            <nav className="list-none mb-10 md:mb-2">
+            <nav className="list-none  mb-10 md:mb-2">
               <li>
                 <Link to="" className="text-gray-100 hover:text-gray-300">
                   +91-1234567890
@@ -73,9 +180,9 @@ const Footer = () => {
             </nav>
           </div>
         </div>
-        <div className="w-full md:w-1/4 flex flex-col justify-center items-center flex-wrap -mb-10 text-center my-5 md:my-0">
+        <div className="w-full md:w-1/6 flex flex-col justify-center items-center flex-wrap -mb-10 text-center my-5 md:my-0">
           <div className="md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-gray-300 tracking-widest text-sm mb-3">
+            <h2 className="title-font font-bold text-gray-300 tracking-widest text-sm mb-3">
               OTHERS
             </h2>
             <nav className="list-none mb-10 md:mb-2">
@@ -93,7 +200,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-indigo-900 ">
+      <div className="bg-gray-900 ">
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p className="text-gray-100 text-sm text-center sm:text-left">
             © 2023 myCart —@TonmoySardar

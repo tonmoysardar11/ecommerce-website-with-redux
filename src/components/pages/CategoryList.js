@@ -44,7 +44,7 @@ const CategoryList = () => {
             <div >
               <img src={frag} alt="" className="w-full h-28 sm:h-24 object-contain" />
               <h6 className="title-font font-medium text-md text-gray-900 text-center">
-                Fragnances
+              Fragrances
               </h6>
             </div>
           </Link>

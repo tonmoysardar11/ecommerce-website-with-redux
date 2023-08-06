@@ -66,7 +66,7 @@ const Cart = () => {
                           <div className="w-2/5 md:w-20">
                             <img
                               className="h-10 md:h-24"
-                              src={element.image}
+                              src={element.thumbnail}
                               alt=""
                             />
                           </div>
@@ -308,7 +308,9 @@ const Cart = () => {
               Order Placed!
             </h3>
             <div className="mt-2 px-7 py-3">
-              <p className="text-sm text-gray-500">Thanks for choosing myCart</p>
+              <p className="text-sm text-gray-500">
+                Thanks for choosing myCart
+              </p>
             </div>
             <div className="items-center px-4 py-3">
               <Link to="/">

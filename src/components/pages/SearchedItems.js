@@ -57,7 +57,7 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
                       onClick={() => modal(element)}
                     >
                       <p>{element.title}</p>
-                      <img src={element.thumbnail} className="w-10" alt="" />
+                      <img src={element.thumbnail} className="w-10 h-10" alt="" />
                     </div>
                   );
                 })

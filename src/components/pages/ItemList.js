@@ -19,10 +19,11 @@ const ItemList = () => {
     const json = await fetchedData.json();
     setloader(false);
     setdata(json.products);
-    setlimit(()=>{return limit+1});
+    setlimit(() => {
+      return limit + 1;
+    });
     settotallength(json.total);
   };
-
 
   useEffect(() => {
     load();
@@ -44,10 +45,11 @@ const ItemList = () => {
         }
       >
         <div className="container mx-auto ">
+          <p className="text-center text-3xl">All Products</p>
           <InfiniteScroll
             dataLength={data.length}
             next={load}
-            hasMore={!(data.length===totallength)}
+            hasMore={!(data.length === totallength)}
             loader={
               <Puff
                 height="300"
@@ -60,7 +62,9 @@ const ItemList = () => {
                 ariaLabel="rings-loading"
               />
             }
-            className={loader ? "flex justify-center flex-col items-center" : ""}
+            className={
+              loader ? "flex justify-center flex-col items-center" : ""
+            }
             endMessage={
               <p style={{ textAlign: "center" }}>
                 <b>Yay! You have seen it all</b>
@@ -76,7 +80,6 @@ const ItemList = () => {
                     onClick={() => modal(element)}
                   >
                     <div className="block relative h-48 rounded overflow-hidden">
-                    
                       <img
                         alt={element.title}
                         className="object-center w-full h-full block "
@@ -95,7 +98,23 @@ const ItemList = () => {
                         {element.brand.charAt(0).toUpperCase() +
                           element.brand.slice(1)}
                       </h3>
-                      <p className="mt-1">${element.price}</p>
+                      <div>
+                        <span className="flex justify-start items-center">
+                          <p className="mt-1 line-through text-gray-700">
+                            ${element.price}
+                          </p>
+                          <p className="mt-1 mx-2 text-gray-900">
+                            $
+                            {(
+                              element.price -
+                              (element.price * element.discountPercentage) / 100
+                            ).toFixed(2)}
+                          </p>
+                        </span>
+                        <p className="mt-1 text-green-700">
+                          {element.discountPercentage}% discount
+                        </p>
+                      </div>
                     </div>
                   </div>
                 );
