@@ -243,7 +243,7 @@ const Cart = () => {
                   </div>
                   <button
                     className="bg-gray-900 font-semibold hover:bg-gray-700 py-3 text-sm text-white   w-full disabled:opacity-50"
-                    onClick={() => setplaced(true)}
+                    onClick={() => {setplaced(true);dispatch(clearCart())}}
                     disabled={name < 3 || address < 6 || mobile < 10}
                   >
                     {name < 3 || address < 6 || mobile < 10
