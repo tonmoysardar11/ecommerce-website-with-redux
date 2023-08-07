@@ -29,7 +29,7 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
     <>
       {focus && (
         <div
-          className="absolute top-14 left-5 md:left-96 z-30 mt-2 w-90 md:w-[30vw] origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute top-14 left-5 md:left-96 z-30 mt-2 w-[80vw] md:w-[30vw] origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"
