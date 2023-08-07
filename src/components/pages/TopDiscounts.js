@@ -46,10 +46,10 @@ const TopDiscounts = () => {
                   onClick={() => modal(element)}
                 >
                   <div className="block relative h-48 rounded overflow-hidden">
-                    <img
+                  <img
                     key={element.id+element.index}
                       alt={element.title}
-                      className="object-center w-full h-full block "
+                      className="object-center block h-48 relative"
                       src={element.thumbnail}
                     />
                   </div>

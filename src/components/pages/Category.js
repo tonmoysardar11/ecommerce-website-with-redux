@@ -236,12 +236,12 @@ const Category = ({ input }) => {
                           onClick={() => modal(element)}
                         >
                           <div className="block relative h-48 rounded overflow-hidden">
-                            <img
-                            key={element.id+element.index}
-                              alt=""
-                              className="object-center w-full h-full block "
-                              src={element.thumbnail}
-                            />
+                          <img
+                    key={element.id+element.index}
+                      alt={element.title}
+                      className="object-center block h-48 relative"
+                      src={element.thumbnail}
+                    />
                           </div>
                           <div className="mt-4">
                             <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">

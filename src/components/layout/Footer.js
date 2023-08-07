@@ -23,6 +23,7 @@ const Footer = () => {
             </h2>
             <div className="flex justify-between">
               <nav className="list-none text-left mb-10 md:mb-2">
+                <ul>
                 <li>
                   <Link
                     to="/smartphones"
@@ -55,8 +56,10 @@ const Footer = () => {
                     Skin Care
                   </Link>
                 </li>
+                </ul>
               </nav>
               <nav className="list-none text-left mb-10 md:mb-2">
+                <ul>
                 <li>
                   <Link
                     to="/home-decoration"
@@ -89,8 +92,10 @@ const Footer = () => {
                     Tops
                   </Link>
                 </li>
+                </ul>
               </nav>
               <nav className="list-none text-left mb-10 md:mb-2">
+                <ul>
                 <li>
                   <Link
                     to="/womens-shoes"
@@ -123,8 +128,10 @@ const Footer = () => {
                     Mens Watches
                   </Link>
                 </li>
+                </ul>
               </nav>
               <nav className="list-none text-left mb-10 md:mb-2">
+                <ul>
                 <li>
                   <Link
                     to="/womens-watches"
@@ -157,6 +164,7 @@ const Footer = () => {
                     Sunglasses
                   </Link>
                 </li>
+                </ul>
               </nav>
             </div>
           </div>

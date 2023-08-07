@@ -26,7 +26,7 @@ const Carousel = ({ imgArr }) => {
         style={{ transform: `translateX(-${img * 100}%)` }}
       >
         {imgArr.map((element, index) => (
-          <img key={index} src={element} className="w-screen" alt="" />
+          <img key={index} src={element} className="w-[100vw]" alt="" />
         ))}
       </div>
 

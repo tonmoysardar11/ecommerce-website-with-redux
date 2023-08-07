@@ -83,7 +83,7 @@ const ItemList = () => {
                     <img
                     key={element.id+element.index}
                       alt={element.title}
-                      className="object-center w-full h-full block relative"
+                      className="object-center block h-48 relative"
                       src={element.thumbnail}
                     />
                   </div>
