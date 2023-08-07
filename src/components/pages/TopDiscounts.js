@@ -47,6 +47,7 @@ const TopDiscounts = () => {
                 >
                   <div className="block relative h-48 rounded overflow-hidden">
                     <img
+                    key={element.id+element.index}
                       alt={element.title}
                       className="object-center w-full h-full block "
                       src={element.thumbnail}

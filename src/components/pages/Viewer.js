@@ -45,9 +45,9 @@ const Viewer = ({ item, state, setmodalData }) => {
   }, [item]);
 
   return (
-    <section className="fixed inset-0 flex items-center justify-center bg-opacity-70 backdrop-filter backdrop-blur-sm">
+    <section className="fixed inset-0 flex items-center justify-center bg-opacity-70 backdrop-filter backdrop-blur-sm z-50">
       {alert && <Alert />}
-      <section className="fixed top-3 left-2 right-2 h-[40rem] lg:h-[80vh] overflow-scroll md:overflow-auto md:top-24 md:left-32 md:right-32 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
+      <section className="fixed top-3 left-2 right-2 h-[40rem] lg:h-[80vh] overflow-scroll md:overflow-auto md:top-24 md:left-32 md:right-32 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none ">
         <p
           className="text-lg title-font text-gray-500 tracking-widest text-right mr-5 mt-1 cursor-pointer"
           onClick={() => {

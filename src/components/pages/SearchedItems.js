@@ -18,8 +18,8 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
   }, []);
 
   const modal = (element) => {
-    setopenModal(false)
-    setmodalData()
+    setopenModal(false);
+    setmodalData();
     setmodalData(element);
     setopenModal(true);
     setfocus(false);
@@ -59,7 +59,11 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
                       onClick={() => modal(element)}
                     >
                       <p>{element.title}</p>
-                      <img src={element.thumbnail} className="w-10 h-10" alt="" />
+                      <img
+                        src={element.thumbnail}
+                        className="w-10 h-10"
+                        alt=""
+                      />
                     </div>
                   );
                 })
@@ -71,7 +75,13 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
           </div>
         </div>
       )}
-      {openModal && <Viewer item={modalData} state={setopenModal} />}
+      {openModal && (
+        <Viewer
+          item={modalData}
+          state={setopenModal}
+          setmodalData={setmodalData}
+        />
+      )}
     </>
   );
 };
