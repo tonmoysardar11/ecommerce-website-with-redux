@@ -19,7 +19,8 @@ const Cart = () => {
   const list = useSelector((state) => {
     return state.cart;
   });
-  const TotalQty = list.length > 0 ? list.reduce((a, b) => a + b.qty, 0) : 0;
+  const TotalQty = 
+  list.length > 0 ? list.reduce((a, b) => a + b.qty, 0) : 0;
   const TotalPrice =
     list.length > 0 ? list.reduce((a, b) => a + b.qty * b.price, 0) : 0;
   const activepromo = "TONMOY11";

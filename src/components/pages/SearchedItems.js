@@ -18,6 +18,8 @@ const SearchedItems = ({ find, focus, sethover, setfocus }) => {
   }, []);
 
   const modal = (element) => {
+    setopenModal(false)
+    setmodalData()
     setmodalData(element);
     setopenModal(true);
     setfocus(false);

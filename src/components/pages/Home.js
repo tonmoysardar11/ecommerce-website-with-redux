@@ -12,7 +12,7 @@ import TopDiscounts from "./TopDiscounts";
 const Home = () => {
   const imgArr = [mens, womens, elec, ess, fur];
   return (
-    <div className="lg:pt-12">
+    <div className="lg:pt-12 scroll-smooth">
       <CategoryList />
       <Carousel imgArr={imgArr} />
       <TopDiscounts />

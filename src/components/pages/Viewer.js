@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons";
 
 const Viewer = ({ item, state, setmodalData }) => {
-  const [elem, setelem] = useState({ ...item, qty: 1 });
   const [alert, setalert] = useState(false);
+  const [elem, setelem] = useState({ ...item, qty: 1 });
   const [img, setimg] = useState(0);
 
   const prev = () => {
@@ -38,11 +38,16 @@ const Viewer = ({ item, state, setmodalData }) => {
     // state(false);
     showalert();
   };
+  useEffect(() => {
+    setelem({ ...item, qty: 1 })
+    setimg(0)
+    
+  }, [item]);
 
   return (
-    <section className="fixed top-0 left-0 right-0 bottom-0 bg-opacity-70 backdrop-filter backdrop-blur-sm">
+    <section className="fixed inset-0 flex items-center justify-center bg-opacity-70 backdrop-filter backdrop-blur-sm">
       {alert && <Alert />}
-      <section className="fixed top-3 left-2 right-2 h-[40rem] lg:h-[80vh] overflow-scroll md:top-24 md:left-32 md:right-32 z-20 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+      <section className="fixed top-3 left-2 right-2 h-[40rem] lg:h-[80vh] overflow-scroll md:overflow-auto md:top-24 md:left-32 md:right-32 origin-top rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
         <p
           className="text-lg title-font text-gray-500 tracking-widest text-right mr-5 mt-1 cursor-pointer"
           onClick={() => {

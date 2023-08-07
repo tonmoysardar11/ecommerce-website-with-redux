@@ -89,7 +89,7 @@ const Category = ({ input }) => {
             : "text-gray-600 body-font md:py-10 lg:px-10 xl:px-15"
         }
       >
-        <div className="container mx-auto">
+        <div className="container mx-auto scroll-smooth">
           <div className="flex flex-col lg:flex-row justify-center">
             <aside className="sticky top-0 lg:top-16 flex flex-col w-full lg:w-1/5 bg-white text-black shadow-md shadow-gray-300 md:p-3 h-auto lg:h-96">
               <div className="p-3 text-2xl font-semibold flex justify-between items-center">
@@ -237,6 +237,7 @@ const Category = ({ input }) => {
                         >
                           <div className="block relative h-48 rounded overflow-hidden">
                             <img
+                            key={element.id+element.index}
                               alt=""
                               className="object-center w-full h-full block "
                               src={element.thumbnail}

@@ -33,7 +33,8 @@ const Navbar = () => {
   const list = useSelector((state) => {
     return state.cart;
   });
-  const TotalQty = list.length > 0 ? list.reduce((a, b) => a + b.qty, 0) : 0;
+  const TotalQty = 
+  list.length > 0 ? list.reduce((a, b) => a + b.qty, 0) : 0;
   return (
     <>
       <header className="lg:fixed w-full z-20 text-gray-100 bg-gray-900 body-font px-3 md:px-5 lg:px-10 xl:px-15">

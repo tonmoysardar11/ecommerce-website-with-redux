@@ -72,54 +72,55 @@ const ItemList = () => {
             }
           >
             <div className="flex flex-wrap justify-center">
-              {data.map((element) => {
-                return (
-                  <div
-                    key={element.id}
-                    className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full md:hover:scale-110 transition ease-in duration-200 cursor-pointer"
-                    onClick={() => modal(element)}
-                  >
-                    <div className="block relative h-48 rounded overflow-hidden">
-                      <img
-                        alt={element.title}
-                        className="object-center w-full h-full block "
-                        src={element.thumbnail}
-                      />
-                    </div>
-                    <div className="mt-4">
-                      <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                        {element.category.charAt(0).toUpperCase() +
-                          element.category.slice(1)}
-                      </h3>
-                      <h2 className="text-gray-900 title-font text-lg font-medium">
-                        {element.title}
-                      </h2>
-                      <h3 className="text-gray-500 text-sm tracking-widest title-font mb-1">
-                        {element.brand.charAt(0).toUpperCase() +
-                          element.brand.slice(1)}
-                      </h3>
-                      <div>
-                        <span className="flex justify-start items-center">
-                          <p className="mt-1 line-through text-gray-700">
-                            ${element.price}
-                          </p>
-                          <p className="mt-1 mx-2 text-gray-900">
-                            $
-                            {(
-                              element.price -
-                              (element.price * element.discountPercentage) / 100
-                            ).toFixed(2)}
-                          </p>
-                        </span>
-                        <p className="mt-1 text-green-700">
-                          {element.discountPercentage}% discount
+            {data.map((element) => {
+              return (
+                <div
+                  key={element.id}
+                  className="shadow-md lg:w-1/5 md:w-1/2 m-2 rounded p-3 w-full md:hover:scale-110 transition ease-in duration-200 cursor-pointer"
+                  onClick={() => modal(element)}
+                >
+                  <div className="block relative h-48 rounded overflow-hidden">
+                    <img
+                    key={element.id+element.index}
+                      alt={element.title}
+                      className="object-center w-full h-full block relative"
+                      src={element.thumbnail}
+                    />
+                  </div>
+                  <div className="mt-4">
+                    <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                      {element.category.charAt(0).toUpperCase() +
+                        element.category.slice(1)}
+                    </h3>
+                    <h2 className="text-gray-900 title-font text-lg font-medium">
+                      {element.title}
+                    </h2>
+                    <h3 className="text-gray-500 text-sm tracking-widest title-font mb-1">
+                      {element.brand.charAt(0).toUpperCase() +
+                        element.brand.slice(1)}
+                    </h3>
+                    <div>
+                      <span className="flex justify-start items-center">
+                        <p className="mt-1 line-through text-gray-700">
+                          ${element.price}
                         </p>
-                      </div>
+                        <p className="mt-1 mx-2 text-gray-900">
+                          $
+                          {(
+                            element.price -
+                            (element.price * element.discountPercentage) / 100
+                          ).toFixed(2)}
+                        </p>
+                      </span>
+                      <p className="mt-1 text-green-700">
+                        {element.discountPercentage}% discount
+                      </p>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
+          </div>
           </InfiniteScroll>
         </div>
       </section>
