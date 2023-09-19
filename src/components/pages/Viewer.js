@@ -10,7 +10,7 @@ const Viewer = ({ item, state, setmodalData }) => {
   const [alert, setalert] = useState(false);
   const [elem, setelem] = useState({ ...item, qty: 1 });
   const [img, setimg] = useState(0);
-
+console.log(item)
   const prev = () => {
     setimg(img === 0 ? elem.images.length - 1 : img - 1);
   };

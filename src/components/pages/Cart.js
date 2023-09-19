@@ -75,9 +75,9 @@ const Cart = () => {
                             <span className="font-bold text-sm">
                               {element.title}
                             </span>
-                            <span className="text-gray-500 text-sm">
+                            {/* <span className="text-gray-500 text-sm">
                               Size: {element.size}
-                            </span>
+                            </span> */}
                             <button
                               className=" rounded-md bg-red-700 hover:bg-red-600 p-2 w-32 text-sm text-white  "
                               onClick={() => dispatch(removeItem(element.id))}

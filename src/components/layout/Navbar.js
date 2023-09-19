@@ -84,7 +84,7 @@ const Navbar = () => {
                 </p>
               </button>
             </Link>
-            <Link to="">
+            <Link to="/prime">
               <button className="py-2 lg:py-0 inline-flex items-center bg-transparent border-0 py-1 px-3 focus:outline-none rounded text-base md:mt-0">
                 Become <span className="text-lg text-yellow-500 mx-1">Prime</span> Member
               </button>

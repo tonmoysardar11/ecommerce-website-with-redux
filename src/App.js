@@ -6,6 +6,7 @@ import Home from "./components/pages/Home";
 import Category from "./components/pages/Category";
 import Footer from "./components/layout/Footer";
 import ItemList from "./components/pages/ItemList";
+import Prime from "./components/pages/Prime";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/all" element={<ItemList />} />
+        <Route exact path="/prime" element={<Prime />} />
         <Route
           exact
           path="/smartphones"
